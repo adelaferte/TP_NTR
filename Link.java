@@ -13,6 +13,8 @@ public class Link {
 	 * 
 	 * @param d1 initialise le device A
 	 * @param d2 initialise le device B
+	 * @param debMax initialise le debit maximum
+	 * @param debMin initialise le debit minimum
 	 * 
 	 * initialise les débits
 	 */
@@ -25,6 +27,14 @@ public class Link {
 		randomDebitInstant();
 	}
 	
+	/**
+	  Constructeur
+	 * 
+	 * @param debMax initialise le debit maximum
+	 * @param debMin initialise le debit minimum
+	 * 
+	 * initialise les debits
+	 */
 	Link(int debMax, int debMin){
 		A = null;
 		B = null;
