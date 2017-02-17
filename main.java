@@ -1,9 +1,7 @@
 
 public class main {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		new Network(3);
+		Network n = new Network(9);
+		n.ToString();
 	}
-
 }
