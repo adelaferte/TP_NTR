@@ -25,6 +25,8 @@ public class Link {
 		debitMin = debMin;
 		setDebitMoy((debitMax+debitMin)/2);
 		randomDebitInstant();
+		A.addLink(this);
+		B.addLink(this);
 	}
 	
 	/**
