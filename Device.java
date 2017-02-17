@@ -5,8 +5,7 @@ public class Device {
 	private String name;
 	private TreeSet<Link> links;
 	
-	public Device(String name) {
-		this.name = name;
+	public Device() {
 	}
 	
 	public void addLink(Link dev) {
