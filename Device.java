@@ -1,11 +1,12 @@
-import java.util.TreeSet;
+import java.util.ArrayList;
 
 
 public class Device {
 	private String name;
-	private TreeSet<Link> links;
+	private ArrayList<Link> links;
 	
 	public Device() {
+		links = new ArrayList<Link>();
 	}
 	
 	public void addLink(Link dev) {
@@ -16,17 +17,11 @@ public class Device {
 		return this.name;
 	}
 	
-	public TreeSet<Link> getLinks() {
+	public ArrayList<Link> getLinks() {
 		return this.links;
 	}
 	
-	public Link getMaxLink() {
-		return this.links.first();
-	}
-	
-	public Link getMinLink() {
-		return this.links.last();
-	}
+
 	
 }
 
