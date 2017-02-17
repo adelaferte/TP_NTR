@@ -1,38 +1,38 @@
 public class Network {
+	
     public int size = 0;
     public int debmin = 0;
     public int debmax = 100;
     Link num_link;
     public Device[][] grille;
+    
+    
+    
     public Network(int n){
         size = n;
         this.grille = new Device[size][size];
-        for (int i=0;i<size;i++){
-                for (int j=0;j<size;j++){
+        
+        // creation du tableau de device
+        for ( int i=0 ; i<size ; i++ ){
+                for (int j=0 ; j<size ; j++ ){
                     this.grille[i][j] = new Device();
                 }
         }
+        
+        // création des liens
         for (int i=0;i<size;i+=2){
                 for (int j=0;j<size;j+=2){
                         if (is_valid(i+1,j,size) & is_valid(i,j,size)){
                             num_link = new Link(this.grille[i][j],this.grille[i+1][j],debmin,debmax);
-                            this.grille[i][j].addLink(num_link);
-                            this.grille[i+1][j].addLink(num_link);
                         }
                         if (is_valid(i-1,j,size) & is_valid(i,j,size)){
                             num_link = new Link(this.grille[i][j],this.grille[i-1][j],debmin,debmax);
-                            this.grille[i][j].addLink(num_link);
-                            this.grille[i-1][j].addLink(num_link);
                         }
                         if (is_valid(i,j+1,size) & is_valid(i,j,size)){
                             num_link = new Link(this.grille[i][j],this.grille[i][j+1],debmin,debmax);
-                            this.grille[i][j].addLink(num_link);
-                            this.grille[i][j+1].addLink(num_link);
                         }
                         if (is_valid(i,j-1,size) & is_valid(i,j,size)){
                             num_link = new Link(this.grille[i][j],this.grille[i][j-1],debmin,debmax);
-                            this.grille[i][j].addLink(num_link);
-                            this.grille[i][j-1].addLink(num_link);
                         }
                 }
             }
