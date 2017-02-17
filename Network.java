@@ -16,23 +16,15 @@ public class Network {
                 for (int j=0;j<size;j+=2){
                         if (is_valid(i+1,j,size) & is_valid(i,j,size)){
                             num_link = new Link(this.grille[i][j],this.grille[i+1][j],debmin,debmax);
-                            this.grille[i][j].addLink(num_link);
-                            this.grille[i+1][j].addLink(num_link);
                         }
                         if (is_valid(i-1,j,size) & is_valid(i,j,size)){
                             num_link = new Link(this.grille[i][j],this.grille[i-1][j],debmin,debmax);
-                            this.grille[i][j].addLink(num_link);
-                            this.grille[i-1][j].addLink(num_link);
                         }
                         if (is_valid(i,j+1,size) & is_valid(i,j,size)){
                             num_link = new Link(this.grille[i][j],this.grille[i][j+1],debmin,debmax);
-                            this.grille[i][j].addLink(num_link);
-                            this.grille[i][j+1].addLink(num_link);
                         }
                         if (is_valid(i,j-1,size) & is_valid(i,j,size)){
                             num_link = new Link(this.grille[i][j],this.grille[i][j-1],debmin,debmax);
-                            this.grille[i][j].addLink(num_link);
-                            this.grille[i][j-1].addLink(num_link);
                         }
                 }
             }
