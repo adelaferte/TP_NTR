@@ -21,7 +21,13 @@ public class Device {
 		return this.links;
 	}
 	
-
+	public String ToString (){
+		String str = "";
+		for (int x = 0; x < links.size() ; x ++){
+			str += links.get(x).ToString();
+		}
+		return str;
+	}
 	
 }
 
