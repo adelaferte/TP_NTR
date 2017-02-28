@@ -17,7 +17,11 @@ public class Network {
         // creation du tableau de device
         for ( int i=0 ; i<size ; i++ ){
                 for (int j=0 ; j<size ; j++ ){
-                    this.devicegrille[i][j] = new Device();
+                    Device d = new Device();
+                    this.devicegrille[i][j] = d;
+                    d.i = i;
+                    d.j = j;
+               
                 }
         }
         int x = 0;

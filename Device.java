@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 
 public class Device {
+        public int i;
+        public int j;
 	private ArrayList<Link> links;
 	
 	public Device() {
