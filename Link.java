@@ -73,7 +73,7 @@ public class Link {
 	 * @return le debitInst avec sa nouvelle valeur.
 	 */
 	public int randomDebitInstant(){
-		int random = getDebitMin() + (int)(Math.random() * ((getDebitMax() - getDebitMin()) + 1));;
+		int random = getDebitMin() + (int)(Math.random() * ((getDebitMax() - getDebitMin()) + 1));
 		setDebitInst(random);
 		return debitInst;
 	}
