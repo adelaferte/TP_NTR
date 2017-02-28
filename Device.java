@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 
 public class Device {
-	private String name;
 	private ArrayList<Link> links;
 	
 	public Device() {
@@ -11,10 +10,6 @@ public class Device {
 	
 	public void addLink(Link dev) {
 		links.add(dev);
-	}
-	
-	public String getName() {
-		return this.name;
 	}
 	
 	public ArrayList<Link> getLinks() {
