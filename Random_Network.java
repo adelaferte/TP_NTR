@@ -18,7 +18,7 @@ public class Random_Network {
     Device source;
     Device destination;
     
-    public Random_Network(Device source, Device destination) {
+    public Random_Network(Network n,Device source, Device destination) {
         this.source = source;
         this.destination = destination;
                 
