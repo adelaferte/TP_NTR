@@ -1,47 +1,50 @@
 public class Network {
 	
     public int size = 0;
-    public int debmin = 0;
+    public int debmin = 10;
     public int debmax = 100;
     Link num_link;
-    public Device[][] grille;
+    public Device[][] devicegrille;
+    public Link[] linkgrille;
     
     
     
     public Network(int n){
         size = n;
-        this.grille = new Device[size][size];
+        this.devicegrille = new Device[size][size];
+        this.linkgrille = new Link[size*size*4];
         
         // creation du tableau de device
         for ( int i=0 ; i<size ; i++ ){
                 for (int j=0 ; j<size ; j++ ){
-                    this.grille[i][j] = new Device();
+                    this.devicegrille[i][j] = new Device();
                 }
         }
-        
-        // création des liens
+        int x = 0;
+        // crï¿½ation des liens
         for (int i=0;i<size;i++){
                 for (int j=0;j<size;j++){
                 	if (  ((i%2)== 0  && (j%2)== 0) || ( (i%2)!=0 && (j%2)!=0 ) ){ 
-                		System.out.println("i:"+i+"  j:"+j);
                         if (is_valid(i+1,j,size) & is_valid(i,j,size)){
-                        	System.out.println(1); 
-                            num_link = new Link(this.grille[i][j],this.grille[i+1][j],debmin,debmax);
+                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i+1][j],debmin,debmax);
+                            linkgrille[x] = num_link;
+                            x++;
+                                
                         }
                         if (is_valid(i-1,j,size) & is_valid(i,j,size)){
-                        	System.out.println(2); 
-
-                            num_link = new Link(this.grille[i][j],this.grille[i-1][j],debmin,debmax);
+                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i-1][j],debmin,debmax);
+                            linkgrille[x] = num_link;
+                            x++;
                         }
                         if (is_valid(i,j+1,size) & is_valid(i,j,size)){
-                        	System.out.println(3); 
-
-                            num_link = new Link(this.grille[i][j],this.grille[i][j+1],debmin,debmax);
+                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i][j+1],debmin,debmax);
+                            linkgrille[x] = num_link;
+                            x++;
                         }
                         if (is_valid(i,j-1,size) & is_valid(i,j,size)){
-                        	System.out.println(4); 
-
-                            num_link = new Link(this.grille[i][j],this.grille[i][j-1],debmin,debmax);
+                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i][j-1],debmin,debmax);
+                            linkgrille[x] = num_link;
+                            x++;
                         }
                 	}
                 }
@@ -56,12 +59,24 @@ public class Network {
     public String ToString (){
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
-    			System.out.println("x:"+x+"  y:"+y+"     "+grille[x][y].ToString());
+    			System.out.println("x:"+x+"  y:"+y+"     "+devicegrille[x][y].ToString());
     		}
     		
     	}
     	
 		return null;
+    }
+    public Device getFirst(){
+        return this.devicegrille[0][0];
+    }
+    public Device getLast(){
+        return this.devicegrille[size-1][size-1];
+    }
+    
+    public void reset(){
+        for (int i=0;i<size*size;i++){
+                linkgrille[i].randomDebitInstant();
+        }
     }
 }
 
