@@ -25,20 +25,6 @@ public class Network {
         for (int i=0;i<size;i++){
                 for (int j=0;j<size;j++){
                 	if (  ((i%2)== 0  && (j%2)== 0) || ( (i%2)!=0 && (j%2)!=0 ) ){ 
-<<<<<<< HEAD
-                		//System.out.println("i:"+i+"  j:"+j);
-                        if (is_valid(i+1,j,size) & is_valid(i,j,size)){
-                            num_link = new Link(this.grille[i][j],this.grille[i+1][j],debmin,debmax);
-                        }
-                        if (is_valid(i-1,j,size) & is_valid(i,j,size)){
-                            num_link = new Link(this.grille[i][j],this.grille[i-1][j],debmin,debmax);
-                        }
-                        if (is_valid(i,j+1,size) & is_valid(i,j,size)){
-                            num_link = new Link(this.grille[i][j],this.grille[i][j+1],debmin,debmax);
-                        }
-                        if (is_valid(i,j-1,size) & is_valid(i,j,size)){
-                            num_link = new Link(this.grille[i][j],this.grille[i][j-1],debmin,debmax);
-=======
                         if (is_valid(i+1,j,size) & is_valid(i,j,size)){
                             num_link = new Link(this.devicegrille[i][j],this.devicegrille[i+1][j],debmin,debmax);
                             linkgrille[x] = num_link;
@@ -59,7 +45,6 @@ public class Network {
                             num_link = new Link(this.devicegrille[i][j],this.devicegrille[i][j-1],debmin,debmax);
                             linkgrille[x] = num_link;
                             x++;
->>>>>>> 4428528a6a6a1b625a7bb6ca3fff712e848f1e23
                         }
                 	}
                 }
