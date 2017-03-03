@@ -6,16 +6,16 @@ public class Main {
             Network n = new Network(3);
             
             System.out.println("Network");
-            System.out.println(n.ToString());
+            System.out.println(n.toStringDebMoy());
             
             System.out.println("Parcours");
             OLSR olsr = new OLSR(n);
             ArrayList<Device> deviceVisite = olsr.OLSR_1();
 
             
-            System.out.println("liens visité");
+            System.out.println("liens visitï¿½");
             for(int i = 0; i < deviceVisite.size(); i++){
-            	System.out.println(deviceVisite.get(i).ToString());
+            	System.out.println(deviceVisite.get(i).toStringDebMoy());
             }
             
             /*Random_Network rn = new Random_Network(n.getFirst(),n.getLast());

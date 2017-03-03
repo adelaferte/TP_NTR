@@ -18,11 +18,11 @@ public class Link {
 	 * 
 	 * initialise les débits
 	 */
-	Link(Device d1, Device d2, int debMin, int debMax){
+	Link(Device d1, Device d2){
 		A = d1;
 		B = d2;
-		debitMax = debMax;
-		debitMin = debMin;
+		debitMin = 10 + (int)(Math.random()*40);
+	    debitMax = 60 + (int)(Math.random()*100);
 		setDebitMoy((debitMax+debitMin)/2);
 		randomDebitInstant();
 		A.addLink(this);
@@ -86,8 +86,13 @@ public class Link {
 		this.debitMoy = debitMoy;
 	}
 
-	public String ToString(){
+	public String toStringDebInst(){
 		
 		return "[Debit instant "+getDebitInst()+" ]";
+	}
+	
+	public String toStringDebMoy(){
+		
+		return "[Debit moyen "+getDebitMoy()+" ]";
 	}
 }
