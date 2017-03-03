@@ -5,17 +5,34 @@ public class Main {
             //int EXPSIZE = 1000000;
             Network n = new Network(3);
             
+            System.out.println("/***********************************OLSR*********************************/");
+            
             System.out.println("Network");
             System.out.println(n.toStringDebMoy());
             
             System.out.println("Parcours");
             OLSR olsr = new OLSR(n);
-            ArrayList<Device> deviceVisite = olsr.OLSR_1();
+            ArrayList<Device> deviceVisiteolsr = olsr.OLSR_1();
 
             
             System.out.println("liens visit�");
-            for(int i = 0; i < deviceVisite.size(); i++){
-            	System.out.println(deviceVisite.get(i).toStringDebMoy());
+            for(int i = 0; i < deviceVisiteolsr.size(); i++){
+            	System.out.println(deviceVisiteolsr.get(i).toStringDebMoy());
+            }
+            
+            System.out.println("\n\n\n\n/***********************************SLOR*********************************/");
+            
+            System.out.println("Network");
+            System.out.println(n.toStringDebInst());
+            
+            System.out.println("Parcours");
+            LSOR lsor = new LSOR(n);
+            ArrayList<Device> deviceVisitelsor = lsor.LSOR_1();
+
+            
+            System.out.println("liens visit�");
+            for(int i = 0; i < deviceVisitelsor.size(); i++){
+            	System.out.println(deviceVisitelsor.get(i).toStringDebInst());
             }
             
             /*Random_Network rn = new Random_Network(n.getFirst(),n.getLast());

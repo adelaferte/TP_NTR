@@ -21,8 +21,8 @@ public class Link {
 	Link(Device d1, Device d2){
 		A = d1;
 		B = d2;
-		debitMin = 10 + (int)(Math.random()*40);
-	    debitMax = 60 + (int)(Math.random()*100);
+		debitMin = 10 + (int)(Math.random()*30);
+	    debitMax = 60 + (int)(Math.random()*40);
 		setDebitMoy((debitMax+debitMin)/2);
 		randomDebitInstant();
 		A.addLink(this);

@@ -1,17 +1,16 @@
 import java.util.ArrayList;
 
 
-public class OLSR {
-
+public class LSOR {
 	Device source;
 	Device destination;
 
-	public OLSR(Network network) {
+	public LSOR(Network network) {
 		this.source = network.getFirst();
 		this.destination = network.getLast();
 	}
-	
-	public ArrayList<Device> OLSR_1() {
+
+	public ArrayList<Device> LSOR_1() {
 
 		
 		// liste des noeud deja visit� 
@@ -31,13 +30,13 @@ public class OLSR {
 			for (int j = 0; j < LinkEnCours.size(); j++) {
 				
 				// si debit du liens sup�rieurs && le noeud de l'autre cot� du lien n'a pas �t� visit� alors
-				if (debitInt < LinkEnCours.get(j).getDebitMoy()   &&  !dejaVisite.contains(LinkEnCours.get(j).getVoisin(deviceEnCours))) {
+				if (debitInt < LinkEnCours.get(j).getDebitInst()   &&  !dejaVisite.contains(LinkEnCours.get(j).getVoisin(deviceEnCours))) {
 						deviceHD = j;
-						debitInt = LinkEnCours.get(j).getDebitMoy();
+						debitInt = LinkEnCours.get(j).getDebitInst();
 				}
 			}
 			deviceEnCours = LinkEnCours.get(deviceHD).getVoisin(deviceEnCours);
-			System.out.println(deviceEnCours.toStringDebMoy());
+			System.out.println(deviceEnCours.toStringDebInst());
 			dejaVisite.add(deviceEnCours);
 		}
 		return dejaVisite;
@@ -47,21 +46,5 @@ public class OLSR {
 	 * GETTERS and SETTERS
 	 */
 
-
-	public Device getSource() {
-		return source;
-	}
-
-	public void setSource(Device source) {
-		this.source = source;
-	}
-
-	public Device getDestination() {
-		return destination;
-	}
-
-	public void setDestination(Device destination) {
-		this.destination = destination;
-	}
-
+	
 }

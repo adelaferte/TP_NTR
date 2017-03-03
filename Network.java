@@ -1,8 +1,6 @@
 public class Network {
 	
     public int size = 0;
-    public int debmin = 10 + (int)(Math.random()*40);
-    public int debmax = 60 + (int)(Math.random()*100);
     Link num_link;
     public Device[][] devicegrille;
     public Link[] linkgrille;
@@ -60,7 +58,7 @@ public class Network {
         return(i>=0 & j >= 0 & i < size & j < size);
     }
     
-    public String ToStringDebInst (){
+    public String toStringDebInst (){
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
     			System.out.println("x:"+x+"  y:"+y+"     "+devicegrille[x][y].toStringDebInst());
