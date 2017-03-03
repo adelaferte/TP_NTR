@@ -58,6 +58,7 @@ public class OLSR {
 		int deviceHD;
 		ArrayList<Device> dejaVisite = new ArrayList<Device>();
 		dejaVisite.add(source);
+		int i=0;
 
 		// creation et initialisation d'un device "pointeur"
 		Device deviceEnCours = source;
@@ -65,7 +66,7 @@ public class OLSR {
 		// initialisation des liens du deviceEnCours avec ceux de la sources
 		ArrayList<Link> LinkEnCours = source.getLinks();
 
-		while (deviceEnCours != destination) {
+		while (!dejaVisite.contains(destination)) {
 			// test valeur des débits de chaque lien
 			debitInt = LinkEnCours.get(0).getDebitMoy();
 			deviceHD = 0;
@@ -80,6 +81,8 @@ public class OLSR {
 			}
 			deviceEnCours = LinkEnCours.get(deviceHD).getVoisin(deviceEnCours);
 			dejaVisite.add(deviceEnCours);
+			System.out.println(dejaVisite.get(i).ToString());
+			i++;
 			if (debitMin > debitInt)
 				debitMin = debitInt;
 		}
