@@ -3,18 +3,20 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
             //int EXPSIZE = 1000000;
-            Network n = new Network(2);
+            Network n = new Network(3);
             
+            System.out.println("Network");
+            System.out.println(n.ToString());
+            
+            System.out.println("Parcours");
             OLSR olsr = new OLSR(n);
-            int debitTest = 0;
+            ArrayList<Device> deviceVisite = olsr.OLSR_1();
+
             
-            ArrayList<Device> deviceVisite = olsr.OLSR_1(debitTest);
-            
-            
+            System.out.println("liens visité");
             for(int i = 0; i < deviceVisite.size(); i++){
             	System.out.println(deviceVisite.get(i).ToString());
             }
-            System.out.println(debitTest);
             
             /*Random_Network rn = new Random_Network(n.getFirst(),n.getLast());
             int EXPSIZE = 1000000;

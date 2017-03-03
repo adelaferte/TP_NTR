@@ -52,39 +52,34 @@ public class OLSR {
 	 * }
 	 */
 
-	public ArrayList<Device> OLSR_1(int debitMin) {
+	public ArrayList<Device> OLSR_1() {
 
-		int debitInt = 0;
-		int deviceHD;
+		
+		// liste des noeud deja visité 
 		ArrayList<Device> dejaVisite = new ArrayList<Device>();
-		dejaVisite.add(source);
-		int i=0;
-
-		// creation et initialisation d'un device "pointeur"
+		// liste des liens associé au noeud en cours
+		ArrayList<Link> LinkEnCours;
+		
 		Device deviceEnCours = source;
+		dejaVisite.add(deviceEnCours);
 
-		// initialisation des liens du deviceEnCours avec ceux de la sources
-		ArrayList<Link> LinkEnCours = source.getLinks();
 
 		while (!dejaVisite.contains(destination)) {
-			// test valeur des dÃ©bits de chaque lien
-			debitInt = LinkEnCours.get(0).getDebitMoy();
-			deviceHD = 0;
-			for (int j = 1; j < LinkEnCours.size(); j++) {
-				if (debitInt < LinkEnCours.get(j).getDebitMoy()) {
-					if (!dejaVisite.contains(LinkEnCours.get(j).getVoisin(
-							deviceEnCours))) {
+			LinkEnCours = deviceEnCours.getLinks();
+			int debitInt = 0;
+			int deviceHD = 0;
+			
+			for (int j = 0; j < LinkEnCours.size(); j++) {
+				
+				// si debit du liens supérieurs && le noeud de l'autre coté du lien n'a pas été visité alors
+				if (debitInt < LinkEnCours.get(j).getDebitMoy()   &&  !dejaVisite.contains(LinkEnCours.get(j).getVoisin(deviceEnCours))) {
 						deviceHD = j;
-						debitInt = LinkEnCours.get(0).getDebitMoy();
-					}
+						debitInt = LinkEnCours.get(j).getDebitMoy();
 				}
 			}
 			deviceEnCours = LinkEnCours.get(deviceHD).getVoisin(deviceEnCours);
+			System.out.println(deviceEnCours.ToString());
 			dejaVisite.add(deviceEnCours);
-			System.out.println(dejaVisite.get(i).ToString());
-			i++;
-			if (debitMin > debitInt)
-				debitMin = debitInt;
 		}
 		return dejaVisite;
 	}
