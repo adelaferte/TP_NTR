@@ -30,23 +30,23 @@ public class Network {
                 for (int j=0;j<size;j++){
                 	if (  ((i%2)== 0  && (j%2)== 0) || ( (i%2)!=0 && (j%2)!=0 ) ){ 
                         if (is_valid(i+1,j,size) & is_valid(i,j,size)){
-                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i+1][j],debmin,debmax);
+                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i+1][j]);
                             linkgrille[x] = num_link;
                             x++;
                                 
                         }
                         if (is_valid(i-1,j,size) & is_valid(i,j,size)){
-                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i-1][j],debmin,debmax);
+                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i-1][j]);
                             linkgrille[x] = num_link;
                             x++;
                         }
                         if (is_valid(i,j+1,size) & is_valid(i,j,size)){
-                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i][j+1],debmin,debmax);
+                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i][j+1]);
                             linkgrille[x] = num_link;
                             x++;
                         }
                         if (is_valid(i,j-1,size) & is_valid(i,j,size)){
-                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i][j-1],debmin,debmax);
+                            num_link = new Link(this.devicegrille[i][j],this.devicegrille[i][j-1]);
                             linkgrille[x] = num_link;
                             x++;
                         }
@@ -60,16 +60,28 @@ public class Network {
         return(i>=0 & j >= 0 & i < size & j < size);
     }
     
-    public String ToString (){
+    public String ToStringDebInst (){
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
-    			System.out.println("x:"+x+"  y:"+y+"     "+devicegrille[x][y].ToString());
+    			System.out.println("x:"+x+"  y:"+y+"     "+devicegrille[x][y].toStringDebInst());
     		}
     		
     	}
     	
 		return null;
     }
+    
+    public String toStringDebMoy (){
+    	for ( int x  = 0 ; x < size ; x ++ ){
+    		for (int y = 0 ; y < size ; y ++ ){
+    			System.out.println("x:"+x+"  y:"+y+"     "+devicegrille[x][y].toStringDebMoy());
+    		}
+    		
+    	}
+    	
+		return null;
+    }
+    
     public Device getFirst(){
         return this.devicegrille[0][0];
     }
@@ -83,6 +95,8 @@ public class Network {
         }
     }
 }
+
+
 
 
 
