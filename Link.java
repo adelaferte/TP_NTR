@@ -87,10 +87,10 @@ public class Link {
 	}
 
 	public void toStringDebInst(){
-		System.out.println("[Debit instant "+getDebitInst()+"] ");
+		System.out.print("[Debit instant "+getDebitInst()+"] ");
 	}
 	
 	public void toStringDebMoy(){
-		System.out.println("[Debit moyen "+getDebitMoy()+"] ");
+		System.out.print("[Debit moyen "+getDebitMoy()+"] ");
 	}
 }
