@@ -3,6 +3,9 @@ import java.util.ArrayList;
 public class Main {
 	public static void main(String[] args) {
 		Network n = new Network(3);
+		
+		int debitMinOlsr = 0;
+		ArrayList<Device> deviceVisiteolsr = new ArrayList<Device>();
 
 		System.out.println("/*********************************OLSR*******************************/");
 
@@ -11,12 +14,14 @@ public class Main {
 
 		System.out.println("Parcours");
 		OLSR olsr = new OLSR(n);
-		ArrayList<Device> deviceVisiteolsr = olsr.OLSR_1();
+		olsr.OLSR_1(debitMinOlsr, deviceVisiteolsr);
 
 		System.out.println("liens visite");
 		for (int i = 0; i < deviceVisiteolsr.size(); i++) {
 			System.out.println(deviceVisiteolsr.get(i).toStringDebMoy());
 		}
+		
+		System.out.println("Debit Mini du parcours : " + debitMinOlsr);
 
 		System.out.println("\n\n\n\n");
 		System.out.println("/*********************************SLOR*******************************/");
