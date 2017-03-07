@@ -13,7 +13,7 @@ public class LSOR {
 	public int LSOR_1(ArrayList<Device>  dejaVisite) {
 		int debitMin = 0;
 		
-		// liste des liens associ� au noeud en cours
+		// liste des liens associe au noeud en cours
 		ArrayList<Link> LinkEnCours;
 		
 		Device deviceEnCours = source;
@@ -27,7 +27,7 @@ public class LSOR {
 			
 			for (int j = 0; j < LinkEnCours.size(); j++) {
 				
-				// si debit du liens sup�rieurs && le noeud de l'autre cot� du lien n'a pas �t� visit� alors
+				// si debit du liens superieurs && le noeud de l'autre cote du lien n'a pas ete visite alors
 				if (debitInt < LinkEnCours.get(j).getDebitInst()   &&  !dejaVisite.contains(LinkEnCours.get(j).getVoisin(deviceEnCours))) {
 						deviceHD = j;
 						debitInt = LinkEnCours.get(j).getDebitInst();
@@ -38,7 +38,7 @@ public class LSOR {
 			System.out.println("DebMin : "+ debitMin);
 			
 			deviceEnCours = LinkEnCours.get(deviceHD).getVoisin(deviceEnCours);
-			System.out.println(deviceEnCours.toStringDebInst());
+			deviceEnCours.toStringDebInst();
 			dejaVisite.add(deviceEnCours);
 		}
 		return debitMin;
