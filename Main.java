@@ -18,7 +18,7 @@ public class Main {
 
 		System.out.println("liens visite");
 		for (int i = 0; i < deviceVisiteolsr.size(); i++) {
-			System.out.println(deviceVisiteolsr.get(i).toStringDebMoy());
+			deviceVisiteolsr.get(i).toStringDebMoy();
 		}
 		
 		System.out.println("Debit Mini du parcours : " + debitMinOlsr);
@@ -35,7 +35,7 @@ public class Main {
 
 		System.out.println("liens visite");
 		for (int i = 0; i < deviceVisitelsor.size(); i++) {
-			System.out.println(deviceVisitelsor.get(i).toStringDebInst());
+			deviceVisitelsor.get(i).toStringDebInst();
 		}
 	}
 }
