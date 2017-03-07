@@ -23,7 +23,7 @@ public class Network {
                 }
         }
         int x = 0;
-        // cr�ation des liens
+        // creation des liens
         for (int i=0;i<size;i++){
                 for (int j=0;j<size;j++){
                 	if (  ((i%2)== 0  && (j%2)== 0) || ( (i%2)!=0 && (j%2)!=0 ) ){ 
@@ -62,7 +62,8 @@ public class Network {
     	System.out.println("# Affichage des debits instantanés");
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
-    			System.out.println("x:"+x+"  y:"+y+"     "+devicegrille[x][y].toStringDebInst());
+    			System.out.println("x:"+x+"  y:"+y+"     ");
+    			devicegrille[x][y].toStringDebInst();
     		}
     	}
     }
@@ -70,7 +71,8 @@ public class Network {
     public void toStringDebMoy (){
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
-    			System.out.println("x:"+x+"  y:"+y+"     "+devicegrille[x][y].toStringDebMoy());
+    			System.out.println("x:"+x+"  y:"+y+"     ");
+    			devicegrille[x][y].toStringDebMoy();
     		}
     	}
     }
@@ -88,11 +90,3 @@ public class Network {
         }
     }
 }
-
-
-
-
-
-
-
-

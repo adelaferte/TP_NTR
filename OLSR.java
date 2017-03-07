@@ -13,7 +13,7 @@ public class OLSR {
 	
 	public void OLSR_1(int debitMin, ArrayList<Device> dejaVisite) {
 
-		// liste des liens associ� au noeud en cours
+		// liste des liens associe au noeud en cours
 		ArrayList<Link> LinkEnCours;
 		
 		Device deviceEnCours = source;
@@ -27,7 +27,7 @@ public class OLSR {
 			
 			for (int j = 0; j < LinkEnCours.size(); j++) {
 				
-				// si debit du liens sup�rieurs && le noeud de l'autre cot� du lien n'a pas �t� visit� alors
+				// si debit du liens superieurs && le noeud de l'autre cote du lien n'a pas ete visite alors
 				if (debitInt < LinkEnCours.get(j).getDebitMoy()   &&  !dejaVisite.contains(LinkEnCours.get(j).getVoisin(deviceEnCours))) {
 						deviceHD = j;
 						debitInt = LinkEnCours.get(j).getDebitMoy();
@@ -37,7 +37,7 @@ public class OLSR {
 				debitMin = LinkEnCours.get(deviceHD).getDebitMoy();
 			System.out.println("DebMin : "+ debitMin);
 			deviceEnCours = LinkEnCours.get(deviceHD).getVoisin(deviceEnCours);
-			System.out.println(deviceEnCours.toStringDebMoy());
+			deviceEnCours.toStringDebMoy();
 			dejaVisite.add(deviceEnCours);
 		}
 	}

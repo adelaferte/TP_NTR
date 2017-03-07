@@ -86,13 +86,11 @@ public class Link {
 		this.debitMoy = debitMoy;
 	}
 
-	public String toStringDebInst(){
-		
-		return "[Debit instant "+getDebitInst()+" ]";
+	public void toStringDebInst(){
+		System.out.println("[Debit instant "+getDebitInst()+" ]");
 	}
 	
-	public String toStringDebMoy(){
-		
-		return "[Debit moyen "+getDebitMoy()+" ]";
+	public void toStringDebMoy(){
+		System.out.println("[Debit moyen "+getDebitMoy()+" ]");
 	}
 }

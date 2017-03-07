@@ -18,20 +18,16 @@ public class Device {
 		return this.links;
 	}
 	
-	public String toStringDebInst (){
-		String str = "";
+	public void toStringDebInst (){
 		for (int x = 0; x < links.size() ; x ++){
-			str += links.get(x).toStringDebInst();
+			links.get(x).toStringDebInst();
 		}
-		return str;
 	}
 	
-	public String toStringDebMoy (){
-		String str = "";
+	public void toStringDebMoy (){
 		for (int x = 0; x < links.size() ; x ++){
-			str += links.get(x).toStringDebMoy();
+			links.get(x).toStringDebMoy();
 		}
-		return str;
 	}
 	
 }
