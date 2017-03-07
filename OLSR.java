@@ -11,7 +11,8 @@ public class OLSR {
 		this.destination = network.getLast();
 	}
 	
-	public void OLSR_1(int debitMin, ArrayList<Device> dejaVisite) {
+	public int OLSR_1( ArrayList<Device> dejaVisite) {
+		int debitMin = 0;
 
 		// liste des liens associe au noeud en cours
 		ArrayList<Link> LinkEnCours;
@@ -40,6 +41,7 @@ public class OLSR {
 			deviceEnCours.toStringDebMoy();
 			dejaVisite.add(deviceEnCours);
 		}
+		return debitMin;
 	}
 
 	/**

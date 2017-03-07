@@ -10,11 +10,9 @@ public class LSOR {
 		this.destination = network.getLast();
 	}
 
-	public ArrayList<Device> LSOR_1() {
-
+	public int LSOR_1(ArrayList<Device>  dejaVisite) {
+		int debitMin = 0;
 		
-		// liste des noeud deja visit� 
-		ArrayList<Device> dejaVisite = new ArrayList<Device>();
 		// liste des liens associ� au noeud en cours
 		ArrayList<Link> LinkEnCours;
 		
@@ -35,11 +33,15 @@ public class LSOR {
 						debitInt = LinkEnCours.get(j).getDebitInst();
 				}
 			}
+			if(debitMin>LinkEnCours.get(deviceHD).getDebitInst()|| debitMin == 0)
+				debitMin = LinkEnCours.get(deviceHD).getDebitInst();
+			System.out.println("DebMin : "+ debitMin);
+			
 			deviceEnCours = LinkEnCours.get(deviceHD).getVoisin(deviceEnCours);
 			System.out.println(deviceEnCours.toStringDebInst());
 			dejaVisite.add(deviceEnCours);
 		}
-		return dejaVisite;
+		return debitMin;
 	}
 
 	/**
