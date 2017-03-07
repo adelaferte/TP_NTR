@@ -15,7 +15,7 @@ public class Main {
 
 		System.out.println("Parcours");
 		OLSR olsr = new OLSR(n);
-		olsr.OLSR_1(debitMinOlsr, deviceVisiteolsr);
+		debitMinOlsr = olsr.OLSR_1(deviceVisiteolsr);
 
 		System.out.println("liens visit�");
 		for (int i = 0; i < deviceVisiteolsr.size(); i++) {
@@ -30,13 +30,18 @@ public class Main {
 		System.out.println("Network");
 		System.out.println(n.toStringDebInst());
 
+		ArrayList<Device> deviceVisitelsor = new ArrayList<Device>();
+		int debitMinLSOR =0;
 		System.out.println("Parcours");
 		LSOR lsor = new LSOR(n);
-		ArrayList<Device> deviceVisitelsor = lsor.LSOR_1();
+		debitMinLSOR = lsor.LSOR_1(deviceVisitelsor);
 
 		System.out.println("liens visit�");
 		for (int i = 0; i < deviceVisitelsor.size(); i++) {
 			System.out.println(deviceVisitelsor.get(i).toStringDebInst());
 		}
+		
+		System.out.println("Debit Mini du parcours : " + debitMinLSOR);
+
 	}
 }
