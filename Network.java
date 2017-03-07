@@ -58,26 +58,21 @@ public class Network {
         return(i>=0 & j >= 0 & i < size & j < size);
     }
     
-    public String toStringDebInst (){
+    public void toStringDebInst (){
+    	System.out.println("# Affichage des debits instantanés");
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
     			System.out.println("x:"+x+"  y:"+y+"     "+devicegrille[x][y].toStringDebInst());
     		}
-    		
     	}
-    	
-		return null;
     }
     
-    public String toStringDebMoy (){
+    public void toStringDebMoy (){
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
     			System.out.println("x:"+x+"  y:"+y+"     "+devicegrille[x][y].toStringDebMoy());
     		}
-    		
     	}
-    	
-		return null;
     }
     
     public Device getFirst(){
