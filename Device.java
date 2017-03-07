@@ -22,12 +22,14 @@ public class Device {
 		for (int x = 0; x < links.size() ; x ++){
 			links.get(x).toStringDebInst();
 		}
+		System.out.println();
 	}
 	
 	public void toStringDebMoy (){
 		for (int x = 0; x < links.size() ; x ++){
 			links.get(x).toStringDebMoy();
 		}
+		System.out.println();
 	}
 	
 }
