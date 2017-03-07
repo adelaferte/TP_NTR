@@ -11,11 +11,8 @@ public class OLSR {
 		this.destination = network.getLast();
 	}
 	
-	public ArrayList<Device> OLSR_1() {
+	public void OLSR_1(int debitMin, ArrayList<Device> dejaVisite) {
 
-		
-		// liste des noeud deja visit� 
-		ArrayList<Device> dejaVisite = new ArrayList<Device>();
 		// liste des liens associ� au noeud en cours
 		ArrayList<Link> LinkEnCours;
 		
@@ -36,11 +33,13 @@ public class OLSR {
 						debitInt = LinkEnCours.get(j).getDebitMoy();
 				}
 			}
+			if(debitMin>LinkEnCours.get(deviceHD).getDebitMoy()|| debitMin == 0)
+				debitMin = LinkEnCours.get(deviceHD).getDebitMoy();
+			System.out.println("DebMin : "+ debitMin);
 			deviceEnCours = LinkEnCours.get(deviceHD).getVoisin(deviceEnCours);
 			System.out.println(deviceEnCours.toStringDebMoy());
 			dejaVisite.add(deviceEnCours);
 		}
-		return dejaVisite;
 	}
 
 	/**
