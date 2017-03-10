@@ -4,10 +4,10 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		while(true) {
-			System.out.println("Bienvenue !\n Que voulez-vous lancer ?");
-			System.out.println("___ 1/ OLSR\n");
-			System.out.println("___ 2/ SLOR\n");
-			System.out.println("___ 3/ OLSR infinite\n");
+			System.out.println("Bienvenue !\nQue voulez-vous lancer ?");
+			System.out.println("___ 1/ OLSR");
+			System.out.println("___ 2/ SLOR");
+			System.out.println("___ 3/ OLSR infinite");
 			System.out.println("Votre choix ? (1, 2 ou 3)");
 
 			Scanner sc = new Scanner(System.in);
