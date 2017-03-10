@@ -104,8 +104,8 @@ public class OLSRinfinite {
     private void maj_distance(Device s1,Device s2) {
         System.out.print("Indice s1:"+indice(s1)+"\n");
         System.out.print("Indice s2:"+indice(s2)+"\n");
-        if (d[indice(s2)] > (d[indice(s1)] + s1.getLinksBetweenNodes(s2).getDebitMoy())) { // .getDebitMoy à changer ave inst suivant l'algo
-            d[indice(s2)] = d[indice(s1)] + s1.getLinksBetweenNodes(s2).getDebitMoy();
+        if (d[indice(s2)] > (d[indice(s1)] + 1/s1.getLinksBetweenNodes(s2).getDebitMoy())) { // .getDebitMoy à changer ave inst suivant l'algo
+            d[indice(s2)] = d[indice(s1)] + 1/s1.getLinksBetweenNodes(s2).getDebitMoy();
             pred[indice(s2)] = s1;
         }
     }
