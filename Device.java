@@ -33,12 +33,13 @@ public class Device {
 	}
   public Link getLinksBetweenNodes(Device b){
       for (int x = 0; x<links.size();x++) {
-          Device encours = b.getLinks().get(x).getVoisin(b);
+          Device encours = this.getLinks().get(x).getVoisin(this);
           if (encours == b) {
-              return b.getLinks().get(x);
+              return this.getLinks().get(x);
           }
 
       }
+      System.out.print("Fatal error\n");
       return null;
   }
 

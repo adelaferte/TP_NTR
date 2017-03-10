@@ -4,12 +4,16 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		while(true) {
-			System.out.println("Bienvenue !\n Que voulez-vous lancer ?");
-			System.out.println("___ 1/ OLSR\n");
-			System.out.println("___ 2/ SLOR\n");
-			System.out.println("___ 3/ OLSR infinite\n");
-			System.out.println("Votre choix ? (1, 2 ou 3)");
-
+			System.out.println(" ___________________________________________________");
+			System.out.println(" |                                                  |");
+			System.out.println(" | Bienvenue !                                      |");
+			System.out.println(" | Choisissez votre algorithme de prédilection :    |");
+			System.out.println(" | ___ 1/ OLSR pas à pas                            |");
+			System.out.println(" | ___ 2/ SLOR pas à pas                            |");
+			System.out.println(" | ___ 3/ OLSR infinite                             |");
+			System.out.println(" |__________________________________________________|");
+			
+			System.out.print("\nVotre choix (1, 2 ou 3) : ");
 			Scanner sc = new Scanner(System.in);
 			int choix = sc.nextInt();
 			
@@ -25,10 +29,8 @@ public class Main {
 				break;
 			case 3:main_olsrInfinite(n, debitMinOlsr, deviceVisiteolsr);
 				break;
-			default:
-				;
+			default:;
 			}
-			sc.close();
 		}
 	}
 	

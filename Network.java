@@ -51,7 +51,7 @@ public class Network {
                 	}
                 }
             }
-            System.out.println("Network created.");
+            System.out.println("\nCréation du réseau..... OK\n\n");
         }
 
     private boolean is_valid(int i, int j, int size) {
