@@ -89,11 +89,8 @@ public class OLSRinfinite {
     private Device trouve_min() {
         int mini = 99999;
         Device sommet = null;
-        System.out.print(Q.size()+"\n");
         for (int i=0;i<Q.size();i++) {
-        System.out.print("Indice = "+ indice(Q.get(i))+"\n");
             if (d[ indice(Q.get(i)) ] < mini) {
-                System.out.print("We went into it. i:"+i+"\n");
                 mini = d[ indice(Q.get(i)) ];
                 sommet = Q.get(i);
             }
@@ -102,8 +99,6 @@ public class OLSRinfinite {
     }
     
     private void maj_distance(Device s1,Device s2) {
-        System.out.print("Indice s1:"+indice(s1)+"\n");
-        System.out.print("Indice s2:"+indice(s2)+"\n");
         if (d[indice(s2)] > (d[indice(s1)] + 1/s1.getLinksBetweenNodes(s2).getDebitMoy())) { // .getDebitMoy à changer ave inst suivant l'algo
             d[indice(s2)] = d[indice(s1)] + 1/s1.getLinksBetweenNodes(s2).getDebitMoy();
             pred[indice(s2)] = s1;
