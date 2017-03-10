@@ -15,9 +15,9 @@ public class OLSRinfinite {
     ArrayList<Device> path;
     Network n;
     
-    public OLSRinfinite(Network n, Device source, Device destination) {
-        this.source = source;
-        this.destination = destination;
+    public OLSRinfinite(Network n) {
+        this.source = n.getFirst();
+        this.destination = n.getLast();
         this.n = n;
                 
     }
