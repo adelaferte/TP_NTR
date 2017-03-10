@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 
 public class Device {
-        public int i;
-        public int j;
+    public int i;
+    public int j;
 	private ArrayList<Link> links;
 
 	public Device() {
@@ -19,14 +19,25 @@ public class Device {
 	}
 
 	public void toStringDebInst (){
+		System.out.print("x:"+i+"  y:"+j+"     ");
 		for (int x = 0; x < links.size() ; x ++){
 			links.get(x).toStringDebInst();
 		}
 		System.out.println();
 	}
+	
+	public void toStringDeb (){
+		System.out.print("x:"+i+"  y:"+j+"     ");
+		for (int x = 0; x < links.size() ; x ++){
+			links.get(x).toStringDeb();
+		}
+		System.out.println();
+	}
+
 
 	public void toStringDebMoy (){
-		for (int x = 0; x < links.size() ; x ++){
+		System.out.print("x:"+i+"  y:"+j+"     ");
+		for (int x = 0; x < links.size() ; x ++){			
 			links.get(x).toStringDebMoy();
 		}
 		System.out.println();
