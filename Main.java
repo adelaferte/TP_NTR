@@ -28,6 +28,7 @@ public class Main {
 			default:
 				;
 			}
+			sc.close();
 		}
 	}
 	
