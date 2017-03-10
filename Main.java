@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		
 		Network n = new Network(3);
 		n.toStringDeb();
@@ -13,6 +14,31 @@ public class Main {
 		System.out.println("\n\n");
 		
 		System.out.println("/*********************************OLSR*******************************/   Debit moyen des liens");
+=======
+		// Paramètres
+		int tailleNetwork = 3;
+		Network n = createNetwork(tailleNetwork);
+		
+		while(true) {
+			
+			System.out.println(" ___________________________________________________");
+			System.out.println(" |                                                  |");
+			System.out.println(" | Bienvenue !                                      |");
+			System.out.println(" | Choisissez votre algorithme de prédilection :    |");
+			System.out.println(" | ___ 1/ OLSR pas à pas                            |");
+			System.out.println(" | ___ 2/ SLOR pas à pas                            |");
+			System.out.println(" | ___ 3/ OLSR infinite                             |");
+			System.out.println(" | ___ 4/ Reset network                             |");
+			System.out.println(" | ___ 5/ Changer taille réseau                     |");
+			System.out.println(" |__________________________________________________|");
+			
+			System.out.print("\nVotre choix (1, 2, 3...) : ");
+			Scanner sc = new Scanner(System.in);
+			int choix = sc.nextInt();
+			
+			int debitMinOlsr = 0;
+			ArrayList<Device> deviceVisiteolsr = new ArrayList<Device>();
+>>>>>>> 28f09be6a7ff9901f19ea9d82daaa544eabbe196
 
 		System.out.println("Parcours");
 		OLSR olsr = new OLSR(n);
@@ -27,7 +53,12 @@ public class Main {
 				break;
 			case 3:main_olsrInfinite(n, debitMinOlsr, deviceVisiteolsr);
 				break;
-			case 4:createNetwork(3);
+			case 4:createNetwork(tailleNetwork);
+				break;
+			case 5:
+				System.out.print("Nouvelle taille ? ");
+				tailleNetwork = sc.nextInt();
+				createNetwork(tailleNetwork);
 				break;
 			default:;
 			}
@@ -109,7 +140,7 @@ public class Main {
 		n.toStringDebMoy();
 		
 		System.out.println("Parcours");
-		OLSRinfinite olsrinfinite = new OLSRinfinite(n);
+		DelaiRef olsrinfinite = new DelaiRef(n);
 		debitMinOlsr = olsrinfinite.new_simulation();
 		
 >>>>>>> 4b3bb49279282708db82a8b236ed0f74b39096d7
