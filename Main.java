@@ -17,9 +17,10 @@ public class Main {
 			System.out.println(" | ___ 2/ SLOR pas à pas                            |");
 			System.out.println(" | ___ 3/ OLSR infinite                             |");
 			System.out.println(" | ___ 4/ Reset network                             |");
+			System.out.println(" | ___ 5/ Changer taille réseau                     |");
 			System.out.println(" |__________________________________________________|");
 			
-			System.out.print("\nVotre choix (1, 2 ou 3) : ");
+			System.out.print("\nVotre choix (1, 2, 3...) : ");
 			Scanner sc = new Scanner(System.in);
 			int choix = sc.nextInt();
 			
@@ -34,6 +35,11 @@ public class Main {
 			case 3:main_olsrInfinite(n, debitMinOlsr, deviceVisiteolsr);
 				break;
 			case 4:createNetwork(tailleNetwork);
+				break;
+			case 5:
+				System.out.print("Nouvelle taille ? ");
+				tailleNetwork = sc.nextInt();
+				createNetwork(tailleNetwork);
 				break;
 			default:;
 			}
@@ -91,7 +97,7 @@ public class Main {
 		n.toStringDebMoy();
 		
 		System.out.println("Parcours");
-		OLSRinfinite olsrinfinite = new OLSRinfinite(n);
+		DelaiRef olsrinfinite = new DelaiRef(n);
 		debitMinOlsr = olsrinfinite.new_simulation();
 		
 		System.out.println("liens visite");
