@@ -8,7 +8,7 @@ public class Main {
 			System.out.println("___ 1/ OLSR");
 			System.out.println("___ 2/ SLOR");
 			System.out.println("___ 3/ OLSR infinite");
-			System.out.println("Votre choix ? (1, 2 ou 3)");
+			System.out.println("Votre choix (1, 2 ou 3) : ");
 
 			Scanner sc = new Scanner(System.in);
 			int choix = sc.nextInt();
@@ -25,10 +25,8 @@ public class Main {
 				break;
 			case 3:main_olsrInfinite(n, debitMinOlsr, deviceVisiteolsr);
 				break;
-			default:
-				;
+			default:;
 			}
-			sc.close();
 		}
 	}
 	
