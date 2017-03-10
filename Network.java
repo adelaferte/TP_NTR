@@ -71,12 +71,20 @@ public class Network {
     public void toStringDebMoy (){
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
-    			System.out.println("x:"+x+"  y:"+y+"     ");
+    			System.out.print("x:"+x+"  y:"+y+"     ");
     			devicegrille[x][y].toStringDebMoy();
     		}
     	}
     }
     
+    
+    public void toStringDeb (){
+    	for ( int x  = 0 ; x < size ; x ++ ){
+    		for (int y = 0 ; y < size ; y ++ ){
+    			devicegrille[x][y].toStringDeb();
+    		}
+    	}
+    }
     public Device getFirst(){
         return this.devicegrille[0][0];
     }

@@ -38,7 +38,7 @@ public class LSOR {
 			System.out.println("DebMin : "+ debitMin);
 			
 			deviceEnCours = LinkEnCours.get(deviceHD).getVoisin(deviceEnCours);
-			deviceEnCours.toStringDebInst();
+			deviceEnCours.toStringDeb();
 			dejaVisite.add(deviceEnCours);
 		}
 		return debitMin;
