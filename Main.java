@@ -13,8 +13,8 @@ public class Main {
 		n.toStringDebMoy();
 
 		System.out.println("Parcours");
-		OLSR olsr = new OLSR(n);
-		debitMinOlsr = olsr.OLSR_1(deviceVisiteolsr);
+		OLSR olsr = new OLSRinfinite(n);
+		//debitMinOlsr = olsr.OLSR_1(deviceVisiteolsr);
 
 		System.out.println("liens visite");
 		for (int i = 0; i < deviceVisiteolsr.size(); i++) {
