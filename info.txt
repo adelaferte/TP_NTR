@@ -28,3 +28,6 @@ JAVA
 Grille de réseau -> debit moyen sur chaque liaison
 OADV/OLSR/ExOR
 
+Paquets : ttl
+conditions radio qui changent toutes les ms
+
