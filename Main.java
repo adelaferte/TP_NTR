@@ -13,8 +13,8 @@ public class Main {
 		n.toStringDebMoy();
 
 		System.out.println("Parcours");
-		OLSR olsr = new OLSRinfinite(n);
-		//debitMinOlsr = olsr.OLSR_1(deviceVisiteolsr);
+		OLSR olsr = new OLSR(n);
+		debitMinOlsr = olsr.OLSR_1(deviceVisiteolsr);
 
 		System.out.println("liens visite");
 		for (int i = 0; i < deviceVisiteolsr.size(); i++) {
@@ -42,5 +42,23 @@ public class Main {
 		
 		System.out.println("Debit Mini du parcours : " + debitMinLSOR);
 
-	}
+                System.out.println("/*********************************OLSRinfinite*******************************/");
+
+		System.out.println("Network");
+		n.toStringDebMoy();
+
+		System.out.println("Parcours");
+		OLSRinfinite olsrinfinite = new OLSRinfinite(n);
+		debitMinOlsr = olsr.OLSR_1(deviceVisiteolsr);
+
+		System.out.println("liens visite");
+		for (int i = 0; i < deviceVisiteolsr.size(); i++) {
+			deviceVisiteolsr.get(i).toStringDebMoy();
+		}
+		
+		System.out.println("Debit Mini du parcours : " + debitMinOlsr);
+
+		System.out.println("\n\n\n\n");
+                 
+    }
 }
