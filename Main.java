@@ -3,7 +3,13 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
+		// Paramètres
+		Network n = createNetwork(3);
+		int debitMinOlsr = 0;
+		ArrayList<Device> deviceVisiteolsr = new ArrayList<Device>();
+		
 		while(true) {
+			
 			System.out.println(" ___________________________________________________");
 			System.out.println(" |                                                  |");
 			System.out.println(" | Bienvenue !                                      |");
@@ -11,16 +17,12 @@ public class Main {
 			System.out.println(" | ___ 1/ OLSR pas à pas                            |");
 			System.out.println(" | ___ 2/ SLOR pas à pas                            |");
 			System.out.println(" | ___ 3/ OLSR infinite                             |");
+			System.out.println(" | ___ 4/ Reset network                             |");
 			System.out.println(" |__________________________________________________|");
 			
 			System.out.print("\nVotre choix (1, 2 ou 3) : ");
 			Scanner sc = new Scanner(System.in);
 			int choix = sc.nextInt();
-			
-			// Paramètres
-			Network n = new Network(3);
-			int debitMinOlsr = 0;
-			ArrayList<Device> deviceVisiteolsr = new ArrayList<Device>();
 
 			switch (choix) {
 			case 1:main_olsr(n, debitMinOlsr, deviceVisiteolsr);
@@ -29,9 +31,15 @@ public class Main {
 				break;
 			case 3:main_olsrInfinite(n, debitMinOlsr, deviceVisiteolsr);
 				break;
+			case 4:createNetwork(3);
+				break;
 			default:;
 			}
 		}
+	}
+	
+	private static Network createNetwork(int taille) {
+		return new Network(taille);
 	}
 	
 	private static void main_olsr(Network n, int debitMinOlsr, ArrayList<Device> deviceVisiteolsr) {
