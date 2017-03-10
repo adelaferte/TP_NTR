@@ -93,4 +93,8 @@ public class Link {
 	public void toStringDebMoy(){
 		System.out.print("[Debit moyen "+getDebitMoy()+"] ");
 	}
+	
+	public void toStringDeb(){
+		System.out.print("[ ~ "+getDebitMoy()+"/ I "+getDebitInst()+"] ");
+	}
 }

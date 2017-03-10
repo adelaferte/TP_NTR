@@ -34,11 +34,11 @@ public class OLSR {
 						debitInt = LinkEnCours.get(j).getDebitMoy();
 				}
 			}
-			if(debitMin>LinkEnCours.get(deviceHD).getDebitMoy()|| debitMin == 0)
-				debitMin = LinkEnCours.get(deviceHD).getDebitMoy();
+			if(debitMin>LinkEnCours.get(deviceHD).getDebitInst()|| debitMin == 0)
+				debitMin = LinkEnCours.get(deviceHD).getDebitInst();
 			System.out.println("DebMin : "+ debitMin);
 			deviceEnCours = LinkEnCours.get(deviceHD).getVoisin(deviceEnCours);
-			deviceEnCours.toStringDebMoy();
+			deviceEnCours.toStringDeb();
 			dejaVisite.add(deviceEnCours);
 		}
 		return debitMin;
