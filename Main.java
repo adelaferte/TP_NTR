@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
+		// TO DO : Ajouter constructeur dans link, avec paramètre pour choisir l'écart de débit (90 à 110, 80 à 120, 50 à 150...)
+		// Dans Link : Surcharger le constructeur
+		
 		// Paramètres
 		int tailleNetwork = 3;
 		Network n = createNetwork(tailleNetwork);
