@@ -9,7 +9,7 @@ public class Link {
 	private int debitInst;
 	
 	/**
-	 * Constructeur
+	 * Constructeur par défaut
 	 * 
 	 * @param d1 initialise le device A
 	 * @param d2 initialise le device B
@@ -19,6 +19,27 @@ public class Link {
 	 * initialise les débits
 	 */
 	Link(Device d1, Device d2){
+		A = d1;
+		B = d2;
+		debitMin = 10 + (int)(Math.random()*30);
+	    debitMax = 60 + (int)(Math.random()*40);
+		setDebitMoy((debitMax+debitMin)/2);
+		randomDebitInstant();
+		A.addLink(this);
+		B.addLink(this);
+	}
+	
+	/**
+	 * Constructeur
+	 * 
+	 * @param d1 initialise le device A
+	 * @param d2 initialise le device B
+	 * @param debMax initialise le debit maximum
+	 * @param debMin initialise le debit minimum
+	 * 
+	 * initialise les débits
+	 */
+	Link(Device d1, Device d2, int ecart){
 		A = d1;
 		B = d2;
 		debitMin = 10 + (int)(Math.random()*30);
