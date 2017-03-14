@@ -39,7 +39,7 @@ public class Main {
 			case 5:
 				System.out.print("Nouvelle taille ? ");
 				tailleNetwork = sc.nextInt();
-				createNetwork(tailleNetwork);
+				n = createNetwork(tailleNetwork);
 				break;
 			default:;
 			}
