@@ -17,13 +17,13 @@ public class Main {
 			System.out.println(" ___________________________________________________");
 			System.out.println(" |                                                  |");
 			System.out.println(" | Bienvenue !                                      |");
-			System.out.println(" | Choisissez votre algorithme de prédilection :    |");
-			System.out.println(" | ___  1/ OLSR pas à pas                           |");
-			System.out.println(" | ___  2/ LSOR pas à pas                           |");
+			System.out.println(" | Choisissez votre algorithme de predilection :    |");
+			System.out.println(" | ___  1/ OLSR pas a� pas                           |");
+			System.out.println(" | ___  2/ LSOR pas a� pas                           |");
 			System.out.println(" | ___  3/ OLSR k                                   |");
 			System.out.println(" | ___  4/ LSOR k                                   |");
 			System.out.println(" | ___ 11/ Reset network                            |");
-			System.out.println(" | ___ 12/ Changer taille réseau                    |");
+			System.out.println(" | ___ 12/ Changer taille reseau                    |");
 			System.out.println(" | ___ 13/ Exit                                     |");
 			System.out.println(" |__________________________________________________|");
 			
