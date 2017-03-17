@@ -51,7 +51,7 @@ public class Network {
                 	}
                 }
             }
-            System.out.println("\nCréation du réseau..... (taille:" + n + ") OK\n");
+            System.out.println("\nCreation du reseau..... (taille:" + n + ") OK\n");
         }
 
     private boolean is_valid(int i, int j, int size) {
@@ -59,7 +59,7 @@ public class Network {
     }
     
     public void toStringDebInst (){
-    	System.out.println("# Affichage des debits instantanés");
+    	System.out.println("# Affichage des debits instantanes");
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
     			System.out.println("x:"+x+"  y:"+y+"     ");
