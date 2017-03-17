@@ -18,8 +18,8 @@ public class Main {
 			System.out.println(" |                                                  |");
 			System.out.println(" | Bienvenue !                                      |");
 			System.out.println(" | Choisissez votre algorithme de predilection :    |");
-			System.out.println(" | ___  1/ OLSR pas a  pas                           |");
-			System.out.println(" | ___  2/ LSOR pas a  pas                           |");
+			System.out.println(" | ___  1/ OLSR pas a  pas                          |");
+			System.out.println(" | ___  2/ LSOR pas a  pas                          |");
 			System.out.println(" | ___  3/ OLSR k                                   |");
 			System.out.println(" | ___  4/ LSOR k                                   |");
 			System.out.println(" | ___ 11/ Reset network                            |");

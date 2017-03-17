@@ -4,6 +4,10 @@ import java.util.ArrayList;
 public class Device {
     public int i;
     public int j;
+    
+    public int waitlist = 0;
+    
+    
 	private ArrayList<Link> links;
 
 	public Device() {
@@ -53,5 +57,16 @@ public class Device {
       System.out.print("Fatal error\n");
       return null;
   }
+  
+  
+  public void SendData(){
+	  System.out.println("Function DEVICE.SENDATA a terminer");
+	  Device Next = null; // recupére le prochain noeud, surement olsrK.getnext(this)
+	  int debitNext = getLinksBetweenNodes(Next).getDebitInst();
+	  int DataEnvoyerReel = Math.min(debitNext,waitlist);
+	  waitlist-= DataEnvoyerReel;
+	  Next.waitlist+= DataEnvoyerReel;
+  }
+
 
 }
