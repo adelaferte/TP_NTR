@@ -86,10 +86,10 @@ public class Network {
     	}
     }
     
-    public void SendData (){
+    public void SendData (LSORk Routage){
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
-    			devicegrille[x][y].SendData();
+    			devicegrille[x][y].SendData(Routage);
     		}
     	}
     }
