@@ -9,20 +9,43 @@ public class Link {
 	private int debitInst;
 	
 	/**
-	 * Constructeur par dÃ©faut
+	 * Constructeur par defaut
 	 * 
 	 * @param d1 initialise le device A
 	 * @param d2 initialise le device B
 	 * @param debMax initialise le debit maximum
 	 * @param debMin initialise le debit minimum
 	 * 
-	 * initialise les dÃ©bits
+	 * initialise les debits
 	 */
 	Link(Device d1, Device d2){
 		A = d1;
 		B = d2;
 		debitMin = 10 + (int)(Math.random()*30);
 	    debitMax = 60 + (int)(Math.random()*40);
+		setDebitMoy((debitMax+debitMin)/2);
+		randomDebitInstant();
+		A.addLink(this);
+		B.addLink(this);
+	}
+	/**
+	 * Constructeur 
+	 * 
+	 * @param d1 initialise le device A
+	 * @param d2 initialise le device B
+	 * @param debitMinInf la borne Inférieur du debit minimum
+	 * @param debitMinSup la borne Supérieur du debit minimum
+	 * @param debitMaxInf la borne Inférieur du debit maximum
+	 * @param debitMaxSup la borne Supérieur du debit maximum
+	 * 
+	 * Constructeur pour creer des liens avec des valeurs de debit min et max aléatoire avec les bornes fournies en paramètre
+	 * debitMinInf < debitMinSup <= debitMaxInf < debitMaxSup
+	 */
+	Link(Device d1, Device d2,int debitMinInf,int debitMinSup, int debitMaxInf, int debitMaxSup){
+		A = d1;
+		B = d2;
+		debitMin = debitMinInf + (int)(Math.random()*(debitMinSup-debitMinInf));
+	    debitMax = debitMaxInf + (int)(Math.random()*(debitMaxSup-debitMaxInf));
 		setDebitMoy((debitMax+debitMin)/2);
 		randomDebitInstant();
 		A.addLink(this);
@@ -37,13 +60,13 @@ public class Link {
 	 * @param debMax initialise le debit maximum
 	 * @param debMin initialise le debit minimum
 	 * 
-	 * initialise les dÃ©bits
+	 * initialise les debits, valeur minimum aleatoire entre 10 et 40, valeur maximun = debitmin+ecart
 	 */
 	Link(Device d1, Device d2, int ecart){
 		A = d1;
 		B = d2;
 		debitMin = 10 + (int)(Math.random()*30);
-	    debitMax = 60 + (int)(Math.random()*40);
+	    debitMax = debitMin + ecart;
 		setDebitMoy((debitMax+debitMin)/2);
 		randomDebitInstant();
 		A.addLink(this);
