@@ -7,7 +7,6 @@ public class Device {
     
     public int waitlist = 0;
     
-    
 	private ArrayList<Link> links;
 
 	public Device() {
@@ -46,22 +45,21 @@ public class Device {
 		}
 		System.out.println();
 	}
-  public Link getLinksBetweenNodes(Device b){
-      for (int x = 0; x<links.size();x++) {
-          Device encours = this.getLinks().get(x).getVoisin(this);
-          if (encours == b) {
-              return this.getLinks().get(x);
-          }
-
+	
+	public Link getLinksBetweenNodes(Device b){
+		for (int x = 0; x<links.size();x++) {
+			Device encours = this.getLinks().get(x).getVoisin(this);
+			if (encours == b) {
+			    return this.getLinks().get(x);
+			}
       }
       System.out.print("Fatal error\n");
       return null;
   }
   
   
-  public void SendData(){
-	  System.out.println("Function DEVICE.SENDATA a terminer");
-	  Device Next = null; // recupére le prochain noeud, surement olsrK.getnext(this)
+  public void SendData(LSORk Routage){
+	  Device Next = Routage.getNext(this); 
 	  int debitNext = getLinksBetweenNodes(Next).getDebitInst();
 	  int DataEnvoyerReel = Math.min(debitNext,waitlist);
 	  waitlist-= DataEnvoyerReel;
