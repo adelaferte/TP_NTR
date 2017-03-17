@@ -106,7 +106,7 @@ public class LSORk {
         
     }*/
 
-    private Device getNext(Device d){
+    public Device getNext(Device d){
         int[] cout = new int[n.size*n.size];
         Device[] pred = new Device[n.size*n.size];
         Device t;
