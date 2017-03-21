@@ -33,12 +33,12 @@ public class Link {
 	 * 
 	 * @param d1 initialise le device A
 	 * @param d2 initialise le device B
-	 * @param debitMinInf la borne Inférieur du debit minimum
-	 * @param debitMinSup la borne Supérieur du debit minimum
-	 * @param debitMaxInf la borne Inférieur du debit maximum
-	 * @param debitMaxSup la borne Supérieur du debit maximum
+	 * @param debitMinInf la borne Inferieur du debit minimum
+	 * @param debitMinSup la borne Superieur du debit minimum
+	 * @param debitMaxInf la borne Inferieur du debit maximum
+	 * @param debitMaxSup la borne Superieur du debit maximum
 	 * 
-	 * Constructeur pour creer des liens avec des valeurs de debit min et max aléatoire avec les bornes fournies en paramètre
+	 * Constructeur pour creer des liens avec des valeurs de debit min et max aleatoire avec les bornes fournies en parametre
 	 * debitMinInf < debitMinSup <= debitMaxInf < debitMaxSup
 	 */
 	Link(Device d1, Device d2,int debitMinInf,int debitMinSup, int debitMaxInf, int debitMaxSup){
@@ -113,7 +113,7 @@ public class Link {
 	}
 	
 	/**
-	 * initialisation du dÃ©bit instantanÃ©
+	 * initialisation du dÃ©bit instantane
 	 * @return le debitInst avec sa nouvelle valeur.
 	 */
 	public int randomDebitInstant(){
