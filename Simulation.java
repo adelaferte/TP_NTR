@@ -2,10 +2,8 @@ public class Simulation {
 	
 	
 	public static void main(String[] args) {
-		// TO DO : Ajouter constructeur dans link, avec paramètre pour choisir l'écart de débit (90 à 110, 80 à 120, 50 à 150...)
-		// Dans Link : Surcharger le constructeur
 		
-		// Paramètres
+		// Parametres
 		int k = 0;
 		int tailleNetwork = 3;
 		Network n = new Network(tailleNetwork);
@@ -21,11 +19,11 @@ public class Simulation {
 		Depart.waitlist = dataToSend;
 		
 		while(Arrive.waitlist != dataToSend) {
-			if (TimeUnit%delayRefreshValInst == 0 ){ // mets a jours les valeurs instantan�es de chaque liens
+			if (TimeUnit%delayRefreshValInst == 0 ){ // mets a jours les valeurs instantan�es de chaque liens
 				n.reset();
 			}
 			n.SendData(Routage);
-			TimeUnit++;// incr�mente l'unit� de temps
+			TimeUnit++;// incr�mente l'unit� de temps
 		}
 		
 		
