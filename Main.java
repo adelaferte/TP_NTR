@@ -6,7 +6,7 @@ public class Main {
 		// TO DO : Ajouter constructeur dans link, avec paramètre pour choisir l'écart de débit (90 à 110, 80 à 120, 50 à 150...)
 		// Dans Link : Surcharger le constructeur
 		
-		// Paramètres
+		// Parametres
 		int tailleNetwork = 3;
 		Network n = createNetwork(tailleNetwork);
 		
@@ -18,8 +18,8 @@ public class Main {
 			System.out.println(" |                                                  |");
 			System.out.println(" | Bienvenue !                                      |");
 			System.out.println(" | Choisissez votre algorithme de predilection :    |");
-			System.out.println(" | ___  1/ OLSR pas a� pas                          |");
-			System.out.println(" | ___  2/ LSOR pas a� pas                          |");
+			System.out.println(" | ___  1/ OLSR pas a pas                           |");
+			System.out.println(" | ___  2/ LSOR pas a pas                           |");
 			System.out.println(" | ___  3/ OLSR k                                   |");
 			System.out.println(" | ___  4/ LSOR k                                   |");
 			System.out.println(" | ___ 11/ Reset network                            |");
