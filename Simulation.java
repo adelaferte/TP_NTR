@@ -19,11 +19,11 @@ public class Simulation {
 		Depart.waitlist = dataToSend;
 		
 		while(Arrive.waitlist != dataToSend) {
-			if (TimeUnit%delayRefreshValInst == 0 ){ // mets a jours les valeurs instantan�es de chaque liens
+			if (TimeUnit%delayRefreshValInst == 0 ){ // mets a jours les valeurs instantanes de chaque liens
 				n.reset();
 			}
 			n.SendData(Routage);
-			TimeUnit++;// incr�mente l'unit� de temps
+			TimeUnit++;// incremente l'unite de temps
 		}
 		
 		
