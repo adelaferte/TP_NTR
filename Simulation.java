@@ -6,7 +6,7 @@ public class Simulation {
 		// Dans Link : Surcharger le constructeur
 		
 		// Paramètres
-		int k = 100;
+		int k = 0;
 		int tailleNetwork = 10;
 		Network n = new Network(tailleNetwork);
 		LSORk Routage = new LSORk(n,k);
@@ -21,18 +21,18 @@ public class Simulation {
 		Depart.waitlist = dataToSend;
 		Depart.futurwaitlist = dataToSend;
 		while(Arrive.waitlist != dataToSend) {
-
-			if (TimeUnit%delayRefreshValInst == 0 ){ // mets a jours les valeurs instantanes de chaque liens
-				n.reset();
-			}
-			n.SendData(Routage);
-			TimeUnit++;// incremente l'unite de temps
+                    if (TimeUnit%100 == 0 ){ // mets a jours les valeurs instantanees de chaque liens
+                            System.out.print((float)Arrive.waitlist/dataToSend*100 +"%\n");
+                    }
+                    if (TimeUnit%delayRefreshValInst == 0 ){ // mets a jours les valeurs instantanes de chaque liens
+                            n.reset();
+                    }
+                    n.SendData(Routage);
+                    n.maj();
+                    TimeUnit++;// incremente l'unite de temps
 		}
 		
 		
 		System.out.println("Le delay d'envoi de "+dataToSend+" data est de :"+TimeUnit );
 	}
-	
-	
-	
 }
