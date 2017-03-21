@@ -21,15 +21,12 @@ public class Simulation {
 		Depart.waitlist = dataToSend;
 		Depart.futurwaitlist = dataToSend;
 		while(Arrive.waitlist != dataToSend) {
-                    if (TimeUnit%100 == 0 ){ // mets a jours les valeurs instantan�es de chaque liens
-				System.out.print((float)Arrive.waitlist/dataToSend*100 +"%\n");
+
+			if (TimeUnit%delayRefreshValInst == 0 ){ // mets a jours les valeurs instantanes de chaque liens
+				n.reset();
 			}
-                    if (TimeUnit%delayRefreshValInst == 0 ){ // mets a jours les valeurs instantan�es de chaque liens
-                            n.reset();
-                    }
-                    n.SendData(Routage);
-                    n.maj();
-                    TimeUnit++;// incr�mente l'unit� de temps
+			n.SendData(Routage);
+			TimeUnit++;// incremente l'unite de temps
 		}
 		
 		
