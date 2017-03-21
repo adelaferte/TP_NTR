@@ -31,3 +31,10 @@ OADV/OLSR/ExOR
 Paquets : ttl
 conditions radio qui changent toutes les ms
 
+Boucle pour le comparator :
+ Collections.sort(F,new Comparator<Device>() {
+            	public int compare(Device o1, Device o2){
+            		return -(cout[indice(o1.i,o1.j)] - cout[indice(o2.i,o2.j)]); 
+            	}
+            });            
+
