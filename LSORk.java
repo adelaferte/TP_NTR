@@ -62,7 +62,7 @@ public class LSORk {
             return true;
         }
         for (Link l : links) {
-            Link lcible = null;
+            Link lcible;
             if (l.getA() == dencours || l.getB() == dencours){
                 if (l.getA() != entry && l.getB() != entry){
                     lcible = l;
@@ -118,7 +118,7 @@ public class LSORk {
                 F.add(n.devicegrille[i][j]);
             }
         }
-        cout[indice(d.i,d.j)] = 99999;
+        cout[indice(d.i,d.j)] = 999999;
         while(!F.isEmpty()){
             Collections.sort(F, (Device o1, Device o2) ->   -(cout[indice(o1.i,o1.j)] - cout[indice(o2.i,o2.j)]));            
             t = F.get(0);
@@ -135,7 +135,6 @@ public class LSORk {
               
         Device dencours = d;
         Device dsuiv = getWork(dencours,n.getLast(),pred);
-        
         return dsuiv;
 
 
