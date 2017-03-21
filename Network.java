@@ -93,6 +93,14 @@ public class Network {
     		}
     	}
     }
+    public void maj (){
+    	for ( int x  = 0 ; x < size ; x ++ ){
+    		for (int y = 0 ; y < size ; y ++ ){
+    			devicegrille[x][y].waitlist = devicegrille[x][y].futurwaitlist;
+    		}
+    	}
+    }
+    
     
     
     public Device getFirst(){
