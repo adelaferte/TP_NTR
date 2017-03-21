@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.Random;
 
 /**
@@ -42,7 +43,7 @@ public class LSORk {
     }
 
     private int indice(int i,int j){
-        return (i+j*n.size);
+        return (i*n.size+j);
     }
 
     private int poids(Link l,Device u,Device origin,int k){ // Return inst if dist(origin,l) < k else moy
@@ -54,32 +55,25 @@ public class LSORk {
         }
     }
     
-    /*private boolean isThere(Device entry,Link lentry,Device devicetofind,ArrayList<Link> links){//check if devicetofind is entry->l way (without going back to entry)
+    private static boolean isThere(Device entry,Link lentry,Device devicetofind,ArrayList<Link> links){//check if devicetofind is entry->l way (without going back to entry)
         Device dencours = lentry.getVoisin(entry);
-        Boolean flag = false;
+        boolean flag = false;
+        if (dencours == devicetofind) {
+            return true;
+        }
         for (Link l : links) {
-            Device dcible = null;
             Link lcible = null;
             if (l.getA() == dencours || l.getB() == dencours){
                 if (l.getA() != entry && l.getB() != entry){
-                    dcible = l.getVoisin(dencours);
                     lcible = l;
+                    flag = flag || isThere(dencours,lcible,devicetofind,links);
                 }
-            }
-            if (dcible == null) {
-                return false;
-            }
-            else if (dcible == devicetofind) {
-                flag = true;
-            }
-            else {
-            flag = isThere(dcible,lcible,devicetofind,links);
             }
         }
         return flag;
     }
 
-    private Device getNext(Device s,Device e,Device[] pred){
+    private Device getWork(Device s,Device e,Device[] pred){
         Device dencours = s;
         ArrayList <Link> links = new ArrayList<>();
         for (int i=0;i<n.size;i++){
@@ -88,23 +82,29 @@ public class LSORk {
                    Device d = n.devicegrille[i][j];
                    Device dprim = pred[indice(i,j)];
                    Link l = d.getLinksBetweenNodes(dprim);
-                   links.add(l);    
+                   links.add(l);
                }
            }
         }
+        ArrayList l2 = new ArrayList();
+
+        Iterator iterator = links.iterator();
+
+        while (iterator.hasNext())
+        {
+            Link o = (Link) iterator.next();
+            if(!l2.contains(o)) l2.add(o);
+        }
+        links = l2;
         for (Link l : links) {
-                if (l.getA() == dencours || l.getB() == dencours){
-                    
+            if (l.getA() == dencours || l.getB() == dencours){
+                if (isThere(dencours,l,e,links)){
+                    return l.getVoisin(dencours);
                 }
             }
-        while (dencours != e)
-            for (Link l : links) {
-                if (l.getA() == dencours || l.getB() == dencours){
-                    
-                }
-            }
-        
-    }*/
+        }
+        return null;
+    }
 
     public Device getNext(Device d){
         int[] cout = new int[n.size*n.size];
@@ -118,27 +118,26 @@ public class LSORk {
                 F.add(n.devicegrille[i][j]);
             }
         }
-        cout[indice(d.i,d.j)] = 0;
+        cout[indice(d.i,d.j)] = 99999;
         while(!F.isEmpty()){
-            Collections.sort(F, (Device o1, Device o2) -> cout[indice(o1.i,o1.j)] - cout[indice(o2.i,o2.j)]);
+            Collections.sort(F, (Device o1, Device o2) ->   -(cout[indice(o1.i,o1.j)] - cout[indice(o2.i,o2.j)]));            
             t = F.get(0);
             F.remove(0);
-            for (int x=0;x < t.getLinks().size();x++) {
-                Link l = t.getLinks().get(x);
+            for (Link l : t.getLinks()) {
                 Device u = l.getVoisin(t);
-                    if (cout[indice(u.i,u.j)] < poids(l,u,d,this.k)){
+                    if (cout[indice(u.i,u.j)] < poids(l,u,d,this.k) && F.contains(u)){
                         cout[indice(u.i,u.j)] = poids(l,u,d,this.k);
                         pred[indice(u.i,u.j)] = t;
                     }
             }
         }
-        Device dencours = n.getLast();
-        Device dprec = pred[indice(dencours.i,dencours.j)];
-        while(dprec != d){
-            dencours = dprec;
-            dprec = pred[indice(dprec.i,dprec.j)];
-        }
-        return dencours;
+        
+              
+        Device dencours = d;
+        Device dsuiv = getWork(dencours,n.getLast(),pred);
+        
+        return dsuiv;
+
 
     }
 }

@@ -33,12 +33,12 @@ public class Link {
 	 * 
 	 * @param d1 initialise le device A
 	 * @param d2 initialise le device B
-	 * @param debitMinInf la borne Inférieur du debit minimum
-	 * @param debitMinSup la borne Supérieur du debit minimum
-	 * @param debitMaxInf la borne Inférieur du debit maximum
-	 * @param debitMaxSup la borne Supérieur du debit maximum
+	 * @param debitMinInf la borne Infï¿½rieur du debit minimum
+	 * @param debitMinSup la borne Supï¿½rieur du debit minimum
+	 * @param debitMaxInf la borne Infï¿½rieur du debit maximum
+	 * @param debitMaxSup la borne Supï¿½rieur du debit maximum
 	 * 
-	 * Constructeur pour creer des liens avec des valeurs de debit min et max aléatoire avec les bornes fournies en paramètre
+	 * Constructeur pour creer des liens avec des valeurs de debit min et max alï¿½atoire avec les bornes fournies en paramï¿½tre
 	 * debitMinInf < debitMinSup <= debitMaxInf < debitMaxSup
 	 */
 	Link(Device d1, Device d2,int debitMinInf,int debitMinSup, int debitMaxInf, int debitMaxSup){
@@ -141,4 +141,7 @@ public class Link {
 	public void toStringDeb(){
 		System.out.print("[ ~ "+getDebitMoy()+"/ I "+getDebitInst()+"] ");
 	}
+        public String toString() { 
+            return this.A.toString() + "->" + this.B.toString();
+        } 
 }
