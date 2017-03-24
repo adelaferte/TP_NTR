@@ -85,6 +85,14 @@ public class Network {
     		}
     	}
     }
+    public void set (int[][][] waitlist,int k){
+        for ( int x  = 0 ; x < size ; x ++ ){
+    		for (int y = 0 ; y < size ; y ++ ){
+    			devicegrille[x][y].waitlist = waitlist[x][y][k];
+    			devicegrille[x][y].futurwaitlist = waitlist[x][y][k];
+    		}
+    	}
+    }
     
     public void SendData (LSORk Routage){
     	for ( int x  = 0 ; x < size ; x ++ ){
@@ -92,6 +100,7 @@ public class Network {
     			devicegrille[x][y].SendData(Routage);
     		}
     	}
+        
     }
     public void maj (){
     	for ( int x  = 0 ; x < size ; x ++ ){
