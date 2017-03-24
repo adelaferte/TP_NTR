@@ -1,5 +1,7 @@
 Soutenance lors des TD programmés. Donc à finir pour le dernier TP de l'EdT
 
+cedric.gueguen@irisa.fr
+
 30% de la note
 Rapport
 1 page pour expliquer ce qu'on a fait.
@@ -30,4 +32,12 @@ OADV/OLSR/ExOR
 
 Paquets : ttl
 conditions radio qui changent toutes les ms
+
+Boucle pour le comparator :
+ Collections.sort(F,new Comparator<Device>() {
+            	public int compare(Device o1, Device o2){
+            		return -(cout[indice(o1.i,o1.j)] - cout[indice(o2.i,o2.j)]); 
+            	}
+            });            
+
 
