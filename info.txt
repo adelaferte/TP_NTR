@@ -1,5 +1,7 @@
 Soutenance lors des TD programmés. Donc à finir pour le dernier TP de l'EdT
 
+cedric.gueguen@irisa.fr
+
 30% de la note
 Rapport
 1 page pour expliquer ce qu'on a fait.
@@ -37,4 +39,5 @@ Boucle pour le comparator :
             		return -(cout[indice(o1.i,o1.j)] - cout[indice(o2.i,o2.j)]); 
             	}
             });            
+
 
