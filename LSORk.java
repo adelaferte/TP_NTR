@@ -16,6 +16,7 @@ public class LSORk {
     Device destination;
     ArrayList<Device> path;
     Network n;
+    Device previous = null;
 
     public LSORk(Network n,int k) { // k= 0: OLSR k != 0:LSOR
         this.source = n.getFirst();
@@ -47,7 +48,10 @@ public class LSORk {
     }
 
     private int poids(Link l,Device u,Device origin,int k){ // Return inst if dist(origin,l) < k else moy
-        if (Math.abs(u.i-origin.i)+Math.abs(u.j-origin.j) < k){
+        if (u==previous){
+            return 1;
+        }
+        if (Math.abs(u.i-origin.i)+Math.abs(u.j-origin.j) <= k){
           return l.getDebitInst();
         }
         else {
@@ -64,7 +68,7 @@ public class LSORk {
         for (Link l : links) {
             Link lcible;
             if (l.getA() == dencours || l.getB() == dencours){
-                if (l.getA() != entry && l.getB() != entry){
+                if (l.getA() != entry && l.getB() != entry) {
                     lcible = l;
                     flag = flag || isThere(dencours,lcible,devicetofind,links);
                 }
@@ -107,6 +111,9 @@ public class LSORk {
     }
 
     public Device getNext(Device d){
+        if (d.i == n.size-1 && d.j == n.size-1){
+            return null;
+        }
         int[] cout = new int[n.size*n.size];
         Device[] pred = new Device[n.size*n.size];
         Device t;
@@ -135,6 +142,10 @@ public class LSORk {
               
         Device dencours = d;
         Device dsuiv = getWork(dencours,n.getLast(),pred);
+        if (dsuiv == null){
+            System.out.println("Error at "+ dsuiv );
+        }
+        previous = dsuiv;
         return dsuiv;
 
 

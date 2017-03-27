@@ -1,6 +1,10 @@
 public class Simulation {
 	
 	public int[][][] waitList;
+        public Network n;
+        public int k;
+        public int dataToSend;
+        public int[] lsorkfinished;
 	public void Simulation(int k,int tailleNetwork) {
 		// TO DO : Ajouter constructeur dans link, avec paramètre pour choisir l'écart de débit (90 à 110, 80 à 120, 50 à 150...)
 		// Dans Link : Surcharger le constructeur
@@ -8,45 +12,66 @@ public class Simulation {
 		// Paramètres
                 
                 waitList = new int[tailleNetwork][tailleNetwork][k];
+                this.k = k;
 
-		Network n = new Network(tailleNetwork);
+		n = new Network(tailleNetwork);
 		LSORk[] Routages = new LSORk[k];
+                lsorkfinished = new int[k];
                 
-                for (int i = 0;i<k;i++){
+                for (int i = 0;i<k-1;i++){
                     Routages[i] = new LSORk(n,i);
                 }
+                Routages[k-1] = new LSORk(n,999999);
 		int TimeUnit = 0 ;
-		int delayRefreshValInst = 10;
+		int delayRefreshValInst = 100;
 		
-		int dataToSend = 100000;
+		dataToSend = 100000;
                 for (int z = 0;z<k;z++){
                     waitList[0][0][z] = dataToSend;
                 }
-		Device Arrive = n.getLast();
 		
                 int numberoffinish = 0;
 		while(numberoffinish < k) {
-                    if (TimeUnit%1000 == 0 ){ // mets a jours les valeurs instantanes de chaque liens
+                    if (TimeUnit%10 == 0 ){ // mets a jours les valeurs instantanes de chaque liens
+                            test();
+                            for (int i = 0;i<k;i++){
+                                float val = (float)waitList[tailleNetwork-1][tailleNetwork-1][i]/dataToSend*100;
+                                System.out.print(val+" ");
+                            }
+                            
                             System.out.println();
+                            //printstate();
+                            //n.toStringDeb();
                     }
                     if (TimeUnit%delayRefreshValInst == 0 ){ // mets a jours les valeurs instantanes de chaque liens
                             n.reset();
                     }
                     for (int i=0;i<k;i++){
-                        n.set(waitList,i);
-                        n.SendData(Routages[i]);
-                        n.maj();
-                        majwaitlist(n,i);
-                        TimeUnit++;// incremente l'unite de temps
+                        if (lsorkfinished[i] == 0){
+                            n.set(waitList,i);
+                            n.SendData(Routages[i]);
+                            n.maj();
+                            majwaitlist(n,i);
+                        }
                     }
+                    
+                    TimeUnit++;// incremente l'unite de temps
                     for (int i = 0;i<k;i++){
-                        if(waitList[tailleNetwork-1][tailleNetwork -1][i] == dataToSend){
-                            System.out.println("LSOR "+ i + " finished in "+ TimeUnit + " time Unit");
-                            waitList[tailleNetwork-1][tailleNetwork -1][i] = 0;
+                        if(waitList[tailleNetwork-1][tailleNetwork -1][i] == dataToSend && lsorkfinished[i] == 0){
                             numberoffinish++;
+                            lsorkfinished[i] = numberoffinish;
                         }
                     }
 		}
+                for (int i = 0;i<k;i++){
+                                float val = (float)waitList[tailleNetwork-1][tailleNetwork-1][i]/dataToSend*100;
+                                System.out.print(val+" ");
+                }
+                System.out.println();
+                for (int i = 0;i<k;i++){
+                    System.out.println("LSORk#"+i+" Finished at the "+lsorkfinished[i]+" position");
+                }
+                
 		
 	}
         public void majwaitlist(Network n,int i){
@@ -62,5 +87,35 @@ public class Simulation {
                 flag = flag && (waitList[tailleNetwork-1][tailleNetwork-1][i] == -1);
             }
             return flag;
+        }
+        
+        public void test(){
+            for (int i =0;i<k;i++){
+                if (lsorkfinished[i] == 0){
+                    int m = 0;
+                    for ( int x  = 0 ; x < n.size ; x ++ ){
+                        for (int y = 0 ; y < n.size ; y ++ ){
+                                m+=waitList[x][y][i];
+                        }
+                    }
+                    if (m != dataToSend){
+                        System.out.println("Error at LSOR"+i);
+                    }
+                }
+                
+            }
+          
+        }
+        
+        public void printstate(){
+            for (int i = 0;i<n.size;i++){
+                for (int j = 0;j<n.size;j++){
+                    for (int l = 0; l < k; l++){
+                       System.out.print(waitList[i][j][l]);
+                    }
+                    System.out.print(" ");
+                }
+            System.out.println();
+            }
         }
 }

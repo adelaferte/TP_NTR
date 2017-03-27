@@ -10,7 +10,7 @@ public class Network {
     public Network(int n){
         size = n;
         this.devicegrille = new Device[size][size];
-        this.linkgrille = new Link[size*size*4];
+        this.linkgrille = new Link[(size-1)*size*2];
         
         // creation du tableau de device
         for ( int i=0 ; i<size ; i++ ){
@@ -120,7 +120,9 @@ public class Network {
     }
     
     public void reset(){
-        for (int i=0;i<size*size;i++){
+        int d = 0;
+        for (int i=0;i<((size-1)*size)*2;i++){
+                d++;
                 linkgrille[i].randomDebitInstant();
         }
     }
