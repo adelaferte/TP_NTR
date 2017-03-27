@@ -77,7 +77,7 @@ public class Simulation {
         public void majwaitlist(Network n,int i){
             for ( int x  = 0 ; x < n.size ; x ++ ){
     		for (int y = 0 ; y < n.size ; y ++ ){
-    			waitList[x][y][i] = n.devicegrille[x][y].waitlist;
+    			waitList[x][y][i] = n.devicegrille[x][y].getWaitlist();
     		}
             }
         }

@@ -51,7 +51,7 @@ public class LSORk {
         if (u==previous){
             return 1;
         }
-        if (Math.abs(u.i-origin.i)+Math.abs(u.j-origin.j) <= k){
+        if (Math.abs(u.getI()-origin.getI())+Math.abs(u.getJ()-origin.getJ()) <= k){
           return l.getDebitInst();
         }
         else {
@@ -111,7 +111,7 @@ public class LSORk {
     }
 
     public Device getNext(Device d){
-        if (d.i == n.size-1 && d.j == n.size-1){
+        if (d.getI() == n.size-1 && d.getJ() == n.size-1){
             return null;
         }
         int[] cout = new int[n.size*n.size];
@@ -125,16 +125,16 @@ public class LSORk {
                 F.add(n.devicegrille[i][j]);
             }
         }
-        cout[indice(d.i,d.j)] = 999999;
+        cout[indice(d.getI(),d.getJ())] = 999999;
         while(!F.isEmpty()){
-            Collections.sort(F, (Device o1, Device o2) ->   -(cout[indice(o1.i,o1.j)] - cout[indice(o2.i,o2.j)]));            
+            Collections.sort(F, (Device o1, Device o2) ->   -(cout[indice(o1.getI(),o1.getJ())] - cout[indice(o2.getI(),o2.getJ())]));            
             t = F.get(0);
             F.remove(0);
             for (Link l : t.getLinks()) {
                 Device u = l.getVoisin(t);
-                    if (cout[indice(u.i,u.j)] < poids(l,u,d,this.k) && F.contains(u)){
-                        cout[indice(u.i,u.j)] = poids(l,u,d,this.k);
-                        pred[indice(u.i,u.j)] = t;
+                    if (cout[indice(u.getI(),u.getJ())] < poids(l,u,d,this.k) && F.contains(u)){
+                        cout[indice(u.getI(),u.getJ())] = poids(l,u,d,this.k);
+                        pred[indice(u.getI(),u.getJ())] = t;
                     }
             }
         }

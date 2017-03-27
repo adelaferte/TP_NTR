@@ -59,7 +59,7 @@ public class OLSRinfinite {
       
       Device s = n.getLast();
       while (s != n.getFirst()) {
-          System.out.print("i:"+s.i+" j:"+s.j);
+          System.out.print("i:"+s.getI()+" j:"+s.getJ());
           A.add(s);
           s = pred[indice(s)];
           
@@ -73,7 +73,7 @@ public class OLSRinfinite {
     Device[] pred;
     
     private int indice(Device x) {
-        return (x.i+x.j*n.size);
+        return (x.getI()+x.getJ()*n.size);
     }
     
     private void init() {
