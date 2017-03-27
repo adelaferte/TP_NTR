@@ -7,12 +7,12 @@ import java.util.Collections;
 
 public class OLSRinfinite {
     
-    int m = 200;
-    int index;
-    Device source;
-    Device destination;
-    ArrayList<Device> path;
-    Network n;
+    private int m = 200;
+    private int index;
+    private Device source;
+    private Device destination;
+    private ArrayList<Device> path;
+    private Network n;
     
     public OLSRinfinite(Network n) {
         this.source = n.getFirst();

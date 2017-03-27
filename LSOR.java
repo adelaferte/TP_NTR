@@ -5,8 +5,8 @@ import java.util.ArrayList;
  */
 
 public class LSOR {
-	Device source;
-	Device destination;
+	private Device source;
+	private Device destination;
 
 	public LSOR(Network network) {
 		this.source = network.getFirst();
