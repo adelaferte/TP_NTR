@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+ * @author jrogala, qdubois, adelaferte, jgachelin
+ */
 
 public class Device {
 	

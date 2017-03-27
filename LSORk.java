@@ -1,22 +1,19 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
-import java.util.Random;
 
 /**
- *
- * @author jrogala
+ * @author jrogala, qdubois, adelaferte, jgachelin
  */
+
 public class LSORk {
-    int k;
-    int m = 200;
-    int index;
-    Device source;
-    Device destination;
-    ArrayList<Device> path;
-    Network n;
-    Device previous = null;
+    private int k;
+    private int index;
+    private Device source;
+    private Device destination;
+    private ArrayList<Device> path;
+    private Network n;
+    private Device previous = null;
 
     public LSORk(Network n,int k) { // k= 0: OLSR k != 0:LSOR
         this.source = n.getFirst();
@@ -44,7 +41,7 @@ public class LSORk {
     }
 
     private int indice(int i,int j){
-        return (i*n.size+j);
+        return (i*n.getSize()+j);
     }
 
     private int poids(Link l,Device u,Device origin,int k){ // Return inst if dist(origin,l) < k else moy
@@ -80,19 +77,19 @@ public class LSORk {
     private Device getWork(Device s,Device e,Device[] pred){
         Device dencours = s;
         ArrayList <Link> links = new ArrayList<>();
-        for (int i=0;i<n.size;i++){
-           for (int j=0;j<n.size;j++){
+        for (int i=0;i<n.getSize();i++){
+           for (int j=0;j<n.getSize();j++){
                if (pred[indice(i,j)] != null){
-                   Device d = n.devicegrille[i][j];
+                   Device d = n.getDeviceGrille()[i][j];
                    Device dprim = pred[indice(i,j)];
                    Link l = d.getLinksBetweenNodes(dprim);
                    links.add(l);
                }
            }
         }
-        ArrayList l2 = new ArrayList();
+        ArrayList<Link> l2 = new ArrayList<Link>();
 
-        Iterator iterator = links.iterator();
+        Iterator<Link> iterator = links.iterator();
 
         while (iterator.hasNext())
         {
@@ -111,18 +108,18 @@ public class LSORk {
     }
 
     public Device getNext(Device d){
-        if (d.getI() == n.size-1 && d.getJ() == n.size-1){
+        if (d.getI() == n.getSize()-1 && d.getJ() == n.getSize()-1){
             return null;
         }
-        int[] cout = new int[n.size*n.size];
-        Device[] pred = new Device[n.size*n.size];
+        int[] cout = new int[n.getSize()*n.getSize()];
+        Device[] pred = new Device[n.getSize()*n.getSize()];
         Device t;
         ArrayList<Device> F = new ArrayList<>();
-        for(int i = 0;i<n.size;i++){
-            for (int j=0;j<n.size;j++){
+        for(int i = 0;i<n.getSize();i++){
+            for (int j=0;j<n.getSize();j++){
                 cout[indice(i,j)] = 0;
                 pred[indice(i,j)] = null;
-                F.add(n.devicegrille[i][j]);
+                F.add(n.getDeviceGrille()[i][j]);
             }
         }
         cout[indice(d.getI(),d.getJ())] = 999999;

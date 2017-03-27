@@ -1,19 +1,18 @@
-
 import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- *
- * @author jrogala
+ * @author jrogala, qdubois, adelaferte, jgachelin
  */
+
 public class DelaiRef {
     
-    int m = 200;
-    int index;
-    Device source;
-    Device destination;
-    ArrayList<Device> path;
-    Network n;
+    private int m = 200;
+    private int index;
+    private Device source;
+    private Device destination;
+    private ArrayList<Device> path;
+    private Network n;
     
     public DelaiRef(Network n) {
         this.source = n.getFirst();
@@ -40,9 +39,9 @@ public class DelaiRef {
     private ArrayList<Device> parcours(Device d){
       init();
       
-      for (int i=0;i<n.size;i++) {
-          for (int j=0;j<n.size;j++){
-              Q.add(n.devicegrille[i][j]);
+      for (int i=0;i<n.getSize();i++) {
+          for (int j=0;j<n.getSize();j++){
+              Q.add(n.getDeviceGrille()[i][j]);
           }
       }
       Device s1 = null;
@@ -72,13 +71,13 @@ public class DelaiRef {
     Device[] pred;
     
     private int indice(Device x) {
-        return (x.getI()+x.getJ()*n.size);
+        return (x.getI()+x.getJ()*n.getSize());
     }
     
     private void init() {
-        d = new int[n.size*n.size];
-        pred = new Device[n.size*n.size];
-        for (int i=0;i<n.size*n.size;i++) {
+        d = new int[n.getSize()*n.getSize()];
+        pred = new Device[n.getSize()*n.getSize()];
+        for (int i=0;i<n.getSize()*n.getSize();i++) {
             d[i] = 99999;
             pred[i] = null;
         }

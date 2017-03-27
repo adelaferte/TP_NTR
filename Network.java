@@ -1,11 +1,13 @@
+/**
+ * @author jrogala, qdubois, adelaferte, jgachelin
+ */
+
 public class Network {
 	
-    public int size = 0;
-    Link num_link;
-    public Device[][] devicegrille;
-    public Link[] linkgrille;
-    
-    
+    private int size = 0;
+    private Link num_link;
+    private Device[][] devicegrille;
+    private Link[] linkgrille;
     
     public Network(int n){
         size = n;
@@ -56,6 +58,30 @@ public class Network {
 
     private boolean is_valid(int i, int j, int size) {
         return(i>=0 & j >= 0 & i < size & j < size);
+    }
+    
+    public int getSize() {
+    	return this.size;
+    }
+    
+    public void setSize(int size) {
+    	this.size = size;
+    }
+    
+    public Device[][] getDeviceGrille() {
+    	return this.devicegrille;
+    }
+    
+    public void setDeviceGrille(Device[][] devicegrille) {
+    	this.devicegrille = devicegrille;
+    }
+    
+    public Link[] getLinkGrille() {
+    	return this.linkgrille;
+    }
+    
+    public void setLinkGrille(Link[] linkgrille) {
+    	this.linkgrille = linkgrille;
     }
     
     public void toStringDebInst (){
@@ -120,9 +146,9 @@ public class Network {
     }
     
     public void reset(){
-        int d = 0;
+        // int d = 0; // A supprimer ?
         for (int i=0;i<((size-1)*size)*2;i++){
-                d++;
+                // d++;
                 linkgrille[i].randomDebitInstant();
         }
     }

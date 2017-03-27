@@ -1,12 +1,10 @@
-
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 /**
- *
- * @author jrogala
+ * @author jrogala, qdubois, adelaferte, jgachelin
  */
+
 public class OLSRinfinite {
     
     int m = 200;
@@ -41,9 +39,9 @@ public class OLSRinfinite {
     private ArrayList<Device> parcours(Device d){
       init();
       
-      for (int i=0;i<n.size;i++) {
-          for (int j=0;j<n.size;j++){
-              Q.add(n.devicegrille[i][j]);
+      for (int i=0;i<n.getSize();i++) {
+          for (int j=0;j<n.getSize();j++){
+              Q.add(n.getDeviceGrille()[i][j]);
           }
       }
       Device s1 = null;
@@ -73,13 +71,13 @@ public class OLSRinfinite {
     Device[] pred;
     
     private int indice(Device x) {
-        return (x.getI()+x.getJ()*n.size);
+        return (x.getI()+x.getJ()*n.getSize());
     }
     
     private void init() {
-        d = new int[n.size*n.size];
-        pred = new Device[n.size*n.size];
-        for (int i=0;i<n.size*n.size;i++) {
+        d = new int[n.getSize()*n.getSize()];
+        pred = new Device[n.getSize()*n.getSize()];
+        for (int i=0;i<n.getSize()*n.getSize();i++) {
             d[i] = 99999;
             pred[i] = null;
         }
@@ -105,7 +103,8 @@ public class OLSRinfinite {
         }
     }
     
-    private boolean notAllTrue(boolean[][] T) {
+    /* A supprimer ?
+      private boolean notAllTrue(boolean[][] T) {
         boolean flag = false;
         for (boolean[] T1 : T) {
             for (boolean val : T1) {
@@ -128,5 +127,5 @@ public class OLSRinfinite {
             
         }
         return choosenOne;
-    }
+    }*/
 }
