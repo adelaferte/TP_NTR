@@ -1,11 +1,16 @@
+/**
+ * @author jrogala, qdubois, adelaferte, jgachelin
+ */
+
 public class Simulation {
 	
-	public int[][][] waitList;
-        public Network n;
-        public int k;
-        public int dataToSend;
-        public int[] lsorkfinished;
-	public void Simulation(int k,int tailleNetwork) {
+	private int[][][] waitList;
+    private Network n;
+    private int k;
+    private int dataToSend;
+    private int[] lsorkfinished;
+        
+	public void lancerSimulation(int k,int tailleNetwork) {
 		// TO DO : Ajouter constructeur dans link, avec paramètre pour choisir l'écart de débit (90 à 110, 80 à 120, 50 à 150...)
 		// Dans Link : Surcharger le constructeur
 		
@@ -75,9 +80,9 @@ public class Simulation {
 		
 	}
         public void majwaitlist(Network n,int i){
-            for ( int x  = 0 ; x < n.size ; x ++ ){
-    		for (int y = 0 ; y < n.size ; y ++ ){
-    			waitList[x][y][i] = n.devicegrille[x][y].getWaitlist();
+            for ( int x  = 0 ; x < n.getSize() ; x ++ ){
+    		for (int y = 0 ; y < n.getSize() ; y ++ ){
+    			waitList[x][y][i] = n.getDeviceGrille()[x][y].getWaitlist();
     		}
             }
         }
@@ -93,8 +98,8 @@ public class Simulation {
             for (int i =0;i<k;i++){
                 if (lsorkfinished[i] == 0){
                     int m = 0;
-                    for ( int x  = 0 ; x < n.size ; x ++ ){
-                        for (int y = 0 ; y < n.size ; y ++ ){
+                    for ( int x  = 0 ; x < n.getSize() ; x ++ ){
+                        for (int y = 0 ; y < n.getSize() ; y ++ ){
                                 m+=waitList[x][y][i];
                         }
                     }
@@ -108,8 +113,8 @@ public class Simulation {
         }
         
         public void printstate(){
-            for (int i = 0;i<n.size;i++){
-                for (int j = 0;j<n.size;j++){
+            for (int i = 0;i<n.getSize();i++){
+                for (int j = 0;j<n.getSize();j++){
                     for (int l = 0; l < k; l++){
                        System.out.print(waitList[i][j][l]);
                     }

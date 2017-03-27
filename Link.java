@@ -1,3 +1,6 @@
+/**
+ * @author jrogala, qdubois, adelaferte, jgachelin
+ */
 
 public class Link {
 	
