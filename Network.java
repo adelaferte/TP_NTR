@@ -17,8 +17,8 @@ public class Network {
                 for (int j=0 ; j<size ; j++ ){
                     Device d = new Device();
                     this.devicegrille[i][j] = d;
-                    d.i = i;
-                    d.j = j;
+                    d.setI(i);
+                    d.setJ(j);
                
                 }
         }
@@ -88,8 +88,8 @@ public class Network {
     public void set (int[][][] waitlist,int k){
         for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
-    			devicegrille[x][y].waitlist = waitlist[x][y][k];
-    			devicegrille[x][y].futurwaitlist = waitlist[x][y][k];
+    			devicegrille[x][y].setWaitlist(waitlist[x][y][k]);
+    			devicegrille[x][y].setFuturWaitlist(waitlist[x][y][k]);
     		}
     	}
     }
@@ -105,7 +105,7 @@ public class Network {
     public void maj (){
     	for ( int x  = 0 ; x < size ; x ++ ){
     		for (int y = 0 ; y < size ; y ++ ){
-    			devicegrille[x][y].waitlist = devicegrille[x][y].futurwaitlist;
+    			devicegrille[x][y].setWaitlist(devicegrille[x][y].getFuturWaitlist());
     		}
     	}
     }
