@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class OLSR {
 
-	Device source;
-	Device destination;
+	private Device source;
+	private Device destination;
 
 	public OLSR(Network network) {
 		this.source = network.getFirst();
