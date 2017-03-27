@@ -14,7 +14,7 @@ public class OLSR {
 		this.destination = network.getLast();
 	}
 	
-	public int OLSR_1( ArrayList<Device> dejaVisite) {
+	public int simulerOLSR( ArrayList<Device> dejaVisite) {
 		int debitMin = 0;
 
 		// liste des liens associe au noeud en cours
