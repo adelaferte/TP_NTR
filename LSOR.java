@@ -47,9 +47,4 @@ public class LSOR {
 		return debitMin;
 	}
 
-	/**
-	 * GETTERS and SETTERS
-	 */
-
-
 }

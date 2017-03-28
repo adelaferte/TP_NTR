@@ -102,30 +102,4 @@ public class OLSRinfinite {
 			pred[indice(s2)] = s1;
 		}
 	}
-
-	/* A supprimer ?
-      private boolean notAllTrue(boolean[][] T) {
-        boolean flag = false;
-        for (boolean[] T1 : T) {
-            for (boolean val : T1) {
-                flag = flag || !val;
-            }
-        }
-        return flag;
-    }
-    private int[] choose(boolean[][] P,int[][] dist){
-        int[] choosenOne = {-1,-1};
-        int valencours = 999999999;
-        for (int i = 0;i<P.length;i++){
-            for (int j = 0;j<P[i].length;j++){
-                if (!P[i][j] && dist[i][j] < valencours) {
-                    choosenOne[0] = i;
-                    choosenOne[1] = j;
-                    valencours = dist[i][j];
-                }
-            }
-
-        }
-        return choosenOne;
-    }*/
 }
