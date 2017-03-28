@@ -13,14 +13,14 @@ public class Simulation {
 	private int tailleNetwork;
 
 
-	// cr�ation d'une simulation avec network pr�fait.
+	// creation d'une simulation avec network prefait.
 	public void lancerSimulationWithPremadeNetWork(int k, Network netw ){
 		n=netw;
 		tailleNetwork =n.getSize();
 		lancerSimulation(k);
 	}
 
-	//cr�ation d'une simulation avec nouveau network.
+	//creation d'une simulation avec nouveau network.
 	public void lancerSimulationWithCreationNetWork(int k,int sizeNetwork){
 		n = new Network(sizeNetwork);
 		tailleNetwork = sizeNetwork;
@@ -34,24 +34,24 @@ public class Simulation {
 		// Paramètres
 		this.k = k;
 
-		// initialisation du tableau de waitlist ( �tat des fils d'attente pour chaque noeud, pour chaque test
+		// initialisation du tableau de waitlist ( etat des fils d'attente pour chaque noeud, pour chaque test
 		waitList = new int[tailleNetwork][tailleNetwork][k];
 
-		// cr�ation du network de taille tailleNetwork*tailleNetwork si il est null
-		// cr�ation  et initialisation de la liste des routages utilis� pour le test
+		// creation du network de taille tailleNetwork*tailleNetwork si il est null
+		// creation  et initialisation de la liste des routages utilise pour le test
 		LSORk[] Routages = new LSORk[k];
 		for (int i = 0;i<k-1;i++){
 			Routages[i] = new LSORk(n,i);
 		}
-		// d�fini le dernier routage avec vision global.
+		// defini le dernier routage avec vision global.
 		Routages[k-1] = new LSORk(n,999999);
 
-		// tableau d'INT repr�sentant l'�tat actuel d'une simulation pour chaque routage
+		// tableau d'INT representant l'etat actuel d'une simulation pour chaque routage
 		lsorkfinished = new int[k];
 		lsorkfinishedTime = new int[k];
 
 
-		// nombre d'unit� de temps �coul� depuis le d�but du test
+		// nombre d'unite de temps ecoule depuis le debut du test
 		int TimeUnit = 0 ;
 
 		// delay 
@@ -65,7 +65,7 @@ public class Simulation {
 			waitList[0][0][z] = dataToSend;
 		}
 
-		System.out.println("Progression du pourcentage de paquet arriv� a destination en fonction du nombre k si dessous");
+		System.out.println("Progression du pourcentage de paquet arrive a destination en fonction du nombre k si dessous");
 		System.out.print("Time/k\t");
 		for (int i = 0;i<k;i++){
 			System.out.print(i+"\t");
@@ -73,7 +73,7 @@ public class Simulation {
 		System.out.println("");
 
 		int numberoffinish = 0;
-		while(numberoffinish < k) {// tant que tout les tests ne sont pas termin�
+		while(numberoffinish < k) {// tant que tout les tests ne sont pas termine
 			if (TimeUnit%delayRefreshAffichageDEBUG == 0 ){ 
 				test();
 				System.out.print(TimeUnit+"\t");
