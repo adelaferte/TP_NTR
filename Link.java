@@ -1,13 +1,16 @@
+/**
+ * @author jrogala, qdubois, adelaferte, jgachelin
+ */
 
 public class Link {
-	
+
 	private Device A;
 	private Device B;
 	private int debitMin;
 	private int debitMax;
 	private int debitMoy;
 	private int debitInst;
-	
+
 	/**
 	 * Constructeur par defaut
 	 * 
@@ -22,7 +25,7 @@ public class Link {
 		A = d1;
 		B = d2;
 		debitMin = 10 + (int)(Math.random()*30);
-	    debitMax = 60 + (int)(Math.random()*40);
+		debitMax = 60 + (int)(Math.random()*40);
 		setDebitMoy((debitMax+debitMin)/2);
 		randomDebitInstant();
 		A.addLink(this);
@@ -45,13 +48,13 @@ public class Link {
 		A = d1;
 		B = d2;
 		debitMin = debitMinInf + (int)(Math.random()*(debitMinSup-debitMinInf));
-	    debitMax = debitMaxInf + (int)(Math.random()*(debitMaxSup-debitMaxInf));
+		debitMax = debitMaxInf + (int)(Math.random()*(debitMaxSup-debitMaxInf));
 		setDebitMoy((debitMax+debitMin)/2);
 		randomDebitInstant();
 		A.addLink(this);
 		B.addLink(this);
 	}
-	
+
 	/**
 	 * Constructeur
 	 * 
@@ -66,20 +69,20 @@ public class Link {
 		A = d1;
 		B = d2;
 		debitMin = 10 + (int)(Math.random()*30);
-	    debitMax = debitMin + ecart;
+		debitMax = debitMin + ecart;
 		setDebitMoy((debitMax+debitMin)/2);
 		randomDebitInstant();
 		A.addLink(this);
 		B.addLink(this);
 	}
-	
+
 	/**
 	 * return le voisin du Device a
 	 * @param a Device
 	 * @return le voisin du Device a
 	 */
 	public Device getVoisin(Device a){
-		
+
 		if(A == a)
 			return B;
 		else
@@ -111,7 +114,7 @@ public class Link {
 	public void setDebitInst(int debitInst) {
 		this.debitInst = debitInst;
 	}
-	
+
 	/**
 	 * initialisation du débit instantane
 	 * @return le debitInst avec sa nouvelle valeur.
@@ -133,15 +136,15 @@ public class Link {
 	public void toStringDebInst(){
 		System.out.print("[Debit instant "+getDebitInst()+"] ");
 	}
-	
+
 	public void toStringDebMoy(){
 		System.out.print("[Debit moyen "+getDebitMoy()+"] ");
 	}
-	
+
 	public void toStringDeb(){
 		System.out.print("[ ~ "+getDebitMoy()+"/ I "+getDebitInst()+"] ");
 	}
-        public String toString() { 
-            return this.A.toString() + "->" + this.B.toString();
-        } 
+	public String toString() { 
+		return this.A.toString() + "->" + this.B.toString();
+	} 
 }

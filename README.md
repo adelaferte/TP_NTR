@@ -1,5 +1,3 @@
 # TP_NTR
 
-Waou
-
-LOLOLOLOLOLOLOLOLOLO
+On bosse tellement bien qu'on a fait 100 commits !
