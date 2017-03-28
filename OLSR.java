@@ -13,13 +13,13 @@ public class OLSR {
 		this.source = network.getFirst();
 		this.destination = network.getLast();
 	}
-	
+
 	public int simulerOLSR( ArrayList<Device> dejaVisite) {
 		int debitMin = 0;
 
 		// liste des liens associe au noeud en cours
 		ArrayList<Link> LinkEnCours;
-		
+
 		Device deviceEnCours = source;
 		dejaVisite.add(deviceEnCours);
 
@@ -28,13 +28,13 @@ public class OLSR {
 			LinkEnCours = deviceEnCours.getLinks();
 			int debitInt = 0;
 			int deviceHD = 0;
-			
+
 			for (int j = 0; j < LinkEnCours.size(); j++) {
-				
+
 				// si debit du liens superieurs && le noeud de l'autre cote du lien n'a pas ete visite alors
 				if (debitInt < LinkEnCours.get(j).getDebitMoy()   &&  !dejaVisite.contains(LinkEnCours.get(j).getVoisin(deviceEnCours))) {
-						deviceHD = j;
-						debitInt = LinkEnCours.get(j).getDebitMoy();
+					deviceHD = j;
+					debitInt = LinkEnCours.get(j).getDebitMoy();
 				}
 			}
 			if(debitMin>LinkEnCours.get(deviceHD).getDebitInst()|| debitMin == 0)
