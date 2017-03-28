@@ -28,8 +28,6 @@ public class Simulation {
 	}
 
 	private void lancerSimulation(int k) {
-		// TO DO : Ajouter constructeur dans link, avec paramètre pour choisir l'écart de débit (90 à 110, 80 à 120, 50 à 150...)
-		// Dans Link : Surcharger le constructeur
 
 		// Paramètres
 		this.k = k;
