@@ -10,8 +10,24 @@ public class Simulation {
     private int dataToSend;
     private int[] lsorkfinished;
     private int[] lsorkfinishedTime;
+    private int tailleNetwork;
     
-	public void lancerSimulation(int k,int tailleNetwork) {
+    
+    // création d'une simulation avec network préfait.
+    public void lancerSimulationWithPremadeNetWork(int k, Network netw ){
+    	n=netw;
+    	tailleNetwork =n.getSize();
+    	lancerSimulation(k);
+    }
+    
+    //création d'une simulation avec nouveau network.
+    public void lancerSimulationWithCreationNetWork(int k,int sizeNetwork){
+		n = new Network(sizeNetwork);
+		tailleNetwork = sizeNetwork;
+    	lancerSimulation(k);
+    }
+    
+	private void lancerSimulation(int k) {
 		// TO DO : Ajouter constructeur dans link, avec paramÃ¨tre pour choisir l'Ã©cart de dÃ©bit (90 Ã  110, 80 Ã  120, 50 Ã  150...)
 		// Dans Link : Surcharger le constructeur
 		
@@ -21,9 +37,7 @@ public class Simulation {
 		// initialisation du tableau de waitlist ( état des fils d'attente pour chaque noeud, pour chaque test
 	    waitList = new int[tailleNetwork][tailleNetwork][k];
 	    
-	    // création du network de taille tailleNetwork*tailleNetwork
-		n = new Network(tailleNetwork);
-		
+	    // création du network de taille tailleNetwork*tailleNetwork si il est null
 		// création  et initialisation de la liste des routages utilisé pour le test
 		LSORk[] Routages = new LSORk[k];
         for (int i = 0;i<k-1;i++){
