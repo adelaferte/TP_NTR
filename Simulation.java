@@ -35,10 +35,8 @@ public class Simulation {
 		// chaque noeud, pour chaque test
 		waitList = new int[tailleNetwork][tailleNetwork][k];
 
-		// creation du network de taille tailleNetwork*tailleNetwork si il est
-		// null
-		// creation et initialisation de la liste des routages utilise pour le
-		// test
+		// creation du network de taille tailleNetwork*tailleNetwork si il est null
+		// creation et initialisation de la liste des routages utilise pour le test
 		LSORk[] Routages = new LSORk[k];
 		for (int i = 0; i < k - 1; i++) {
 			Routages[i] = new LSORk(n, i);
@@ -46,8 +44,7 @@ public class Simulation {
 		// defini le dernier routage avec vision global.
 		Routages[k - 1] = new LSORk(n, 999999);
 
-		// tableau d'INT representant l'etat actuel d'une simulation pour chaque
-		// routage
+		// tableau d'INT representant l'etat actuel d'une simulation pour chaque routage
 		lsorkfinished = new int[k];
 		lsorkfinishedTime = new int[k];
 
@@ -88,7 +85,7 @@ public class Simulation {
 	            totalEntree += Entree;
             }
 			if (TimeUnit % delayRefreshAffichageDEBUG == 0) {
-				test();
+				//test();
 				System.out.print(TimeUnit + "\t");
 				for (int i = 0; i < k; i++) {
 					float val = (float) waitList[tailleNetwork - 1][tailleNetwork - 1][i]
