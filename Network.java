@@ -146,9 +146,7 @@ public class Network {
 	}
 
 	public void reset(){
-		// int d = 0; // A supprimer ?
 		for (int i=0;i<((size-1)*size)*2;i++){
-			// d++;
 			linkgrille[i].randomDebitInstant();
 		}
 	}
