@@ -10,9 +10,8 @@
 \date{}
 
 \begin{document}
-
 \maketitle
-\tableofcontents
+
 
 \chapter{Contexte}
 
@@ -39,37 +38,29 @@ routage opportuniste dans les réseaux sans fil. Il s'agit de simuler ces nouvea
 
 \chapter{Résultats analysés}
 
-\section{Performance en pourcentages complétés}
-
-\begin{figure}[h]
-\caption{Performance des algorithmes à travers le temps}
-\centering
-\includegraphics[scale=0.45]{quentin_result/courbes.png}
-\end{figure}
-
-\paragraph{La figure 4.1 illustre la performance des différents algorithmes à travers le temps pour envoyer une quantité de paquets identique.}
-\newpage
-
-\section{Performance en quantité de paquets transmis}
-
-\begin{figure}[h]
-\caption{Performance des algorithmes pour 100000 paquets}
-\centering
-\includegraphics[scale=0.6]{quentin_result/time.png}
-\end{figure}
-
-\paragraph{La figure 4.2 illustre la performance des différents algorithmes pour 100000 paquets.}
-\newpage
-
 \section{Performance des algorithmes}
 
 \begin{figure}[h]
 \caption{Performance des algorithmes à travers le temps}
 \centering
-\includegraphics[scale=0.8]{quentin_result/tableau.png}
+\includegraphics[scale=0.4]{quentin_result/courbes.png}
 \end{figure}
 
-\paragraph{La figure 4.3 illustre la performance des différents algorithmes à travers le temps.}
+\paragraph{La figure 4.1 illustre la performance des différents algorithmes à travers le temps pour envoyer une quantité de paquets identique.}
+\newpage
+
+\section{Performance des algorithmes}
+
+\begin{figure}[h]
+\caption{Performance des algorithmes pour 100000 paquets}
+\centering
+\includegraphics[scale=0.4]{quentin_result/time.png}
+\end{figure}
+
+
+\paragraph{La figure 4.2 illustre la performance des différents algorithmes pour 100000 paquets .}
+
+\paragraph{}
 
 \chapter{Conclusion}
 
