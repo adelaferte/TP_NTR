@@ -47,7 +47,7 @@ routage opportuniste dans les réseaux sans fil. Il s'agit de simuler ces nouvea
 \includegraphics[scale=0.45]{quentin_result/courbes.png}
 \end{figure}
 
-\paragraph{La figure 4.1 illustre la performance des différents algorithmes à travers le temps pour envoyer une quantité de paquets identique.}
+\paragraph{La figure 4.1 illustre la performance des différents algorithmes à travers le temps pour envoyer une quantité de paquets identique. Les algorithmes LSOR peuvent être performants comme médiocres en fonction de leur visibilité du réseau, en effet, LSOR 1 ne voit qu'à 1 noeud de distance, il fait alors des choix non pertinents car les noeuds d'après peuvent avoir un débit grandement inférieur. Nous pouvons voir que dès que l'on augmente la visibilité du réseau sur l'algorithme LSOR il gagne en performance. En théorie, LSOR infini est le meilleur de notre série car il a une vision totale des débits instantanés du réseau. Nous pouvons également constater qu'OLSR, s'appuyant sur des valeurs moyennes, n'est pas le plus mauvais. Le débit moyen est une métrique intéressante, mais il arrive fréquemment que la valeur instantanée soit inférieure à la valeur moyenne, ce qui réduit la performance d'OLSR.}
 \newpage
 
 \section{Performance en quantité de paquets transmis}
@@ -58,7 +58,7 @@ routage opportuniste dans les réseaux sans fil. Il s'agit de simuler ces nouvea
 \includegraphics[scale=0.6]{quentin_result/time.png}
 \end{figure}
 
-\paragraph{La figure 4.2 illustre la performance des différents algorithmes pour 100000 paquets.}
+\paragraph{La figure 4.2 illustre la performance des différents algorithmes pour 100000 paquets. On remarque une nette contre-performance de l'algorithme LSOR 1 qui finit dernier dans ce benchmark. Nous observons une exception au niveau de LSOR 6, liée au fait que ces graphiques ne sont pas réalisés sur une moyenne de simulation mais sur une seule et unique simulation.}
 \newpage
 
 \section{Performance des algorithmes}
@@ -69,9 +69,10 @@ routage opportuniste dans les réseaux sans fil. Il s'agit de simuler ces nouvea
 \includegraphics[scale=0.8]{quentin_result/tableau.png}
 \end{figure}
 
-\paragraph{La figure 4.3 illustre la performance des différents algorithmes à travers le temps.}
+\paragraph{La figure 4.3 illustre la performance des différents algorithmes à travers le temps. On peut voir sur cette illustration les données précises émises par la simulation.}
 
 \chapter{Conclusion}
 
-\paragraph{}
+\paragraph{Ce projet nous a permis de différencier les capacités des algorithmes OLSR et LSOR, et de comprendre leur fonctionnement. }
+
 \end{document}
