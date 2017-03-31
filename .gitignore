@@ -1,0 +1,5 @@
+# LaTeX Documents
+*.tex.backup
+*.aux
+*.log
+*.toc
